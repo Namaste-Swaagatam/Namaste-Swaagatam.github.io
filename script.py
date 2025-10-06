@@ -1,4 +1,4 @@
-# Create the complete HTML file for the pink architectural Griha Pravesh invitation
+# Create the updated HTML file with all the requested changes
 html_content = '''<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -101,8 +101,8 @@ html_content = '''<!DOCTYPE html>
                 <!-- Main Content Inside Arch -->
                 <div class="arch-content">
                     <h1 class="invitation-text">
-                        Invite Your Gracious Presence On<br>
-                        The Occasion Of Their New Home's
+                        Inviting Your Gracious Presence On<br>
+                        The Occasion Of <strong>Our New Home!</strong>
                     </h1>
                     
                     <h2 class="ceremony-title">GRIHA<br>PRAVESH</h2>
@@ -110,22 +110,22 @@ html_content = '''<!DOCTYPE html>
                     <div class="event-details">
                         <div class="detail-item">
                             <i class="fas fa-calendar-alt"></i>
-                            <span class="detail-text">Saturday, November 16th, 2024<br>AT 8:00 PM</span>
+                            <span class="detail-text">Sunday, 26th October, 2025<br>AT 8:00 PM</span>
                         </div>
                         
                         <div class="detail-item">
                             <i class="fas fa-map-marker-alt"></i>
-                            <span class="detail-text">445 W. Mount Eden Road,<br>Anchorage, AK 99504</span>
+                            <span class="detail-text">1004, Block, Sattva Bliss, Budigere Road,<br>Nimbekaipura Rd, off Old Madras Road,<br>Bengaluru, Karnataka 560049</span>
                         </div>
                         
                         <div class="detail-item">
                             <i class="fas fa-phone"></i>
-                            <span class="detail-text">+1 123 456 789</span>
+                            <span class="detail-text">+91 8237886137</span>
                         </div>
                         
-                        <a href="https://maps.app.goo.gl/w9DeHLFnaat1LC4N6" target="_blank" class="map-link">
+                        <a href="https://maps.app.goo.gl/w9DeHLFnaat1LC4N6" target="_blank" class="map-link compact">
                             <i class="fas fa-location-dot"></i>
-                            Find my home!
+                            Find my home
                         </a>
                     </div>
                 </div>
@@ -177,11 +177,6 @@ html_content = '''<!DOCTYPE html>
                         <h2>About Griha Pravesh</h2>
                         <p>Griha Pravesh is a sacred Hindu ceremony performed when entering a new home for the first time. This auspicious ritual involves prayers for prosperity, peace, and positive energy in the new dwelling.</p>
                         <p>The ceremony includes invoking Lord Ganesha to remove obstacles, performing Vastu Shanti for harmonizing the space with natural elements, and seeking blessings from elders and deities for a happy and prosperous life in the new home.</p>
-                        
-                        <div class="dress-code">
-                            <h3>Dress Code</h3>
-                            <p>Traditional Indian attire is preferred. Please wear bright, auspicious colors like red, gold, green, or yellow.</p>
-                        </div>
                     </div>
                     
                     <div class="significance-visual">
@@ -198,106 +193,16 @@ html_content = '''<!DOCTYPE html>
             </div>
         </section>
 
-        <!-- RSVP Form Section -->
-        <section class="rsvp-section">
+        <!-- Presence Confirmation Section -->
+        <section class="confirmation-section">
             <div class="container">
-                <div class="rsvp-header">
-                    <h2>Please Confirm Your Attendance</h2>
+                <div class="confirmation-header">
+                    <h2>Please Confirm Your Presence</h2>
+                </div>
+                
+                <div class="confirmation-content">
                     <p>Your presence will make our celebration complete!</p>
-                </div>
-                
-                <form id="rsvp-form" class="rsvp-form" action="https://formspree.io/f/xrbznbzw" method="POST">
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="guest_name">
-                                <i class="fas fa-user"></i>
-                                Your Name *
-                            </label>
-                            <input type="text" id="guest_name" name="guest_name" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="email">
-                                <i class="fas fa-envelope"></i>
-                                Email Address *
-                            </label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                    </div>
-                    
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="phone">
-                                <i class="fas fa-phone"></i>
-                                Phone Number
-                            </label>
-                            <input type="tel" id="phone" name="phone">
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="guests_count">
-                                <i class="fas fa-users"></i>
-                                Number of Guests *
-                            </label>
-                            <select id="guests_count" name="guests_count" required>
-                                <option value="">Select number of guests</option>
-                                <option value="1">1 Guest</option>
-                                <option value="2">2 Guests</option>
-                                <option value="3">3 Guests</option>
-                                <option value="4">4 Guests</option>
-                                <option value="5+">5+ Guests</option>
-                            </select>
-                        </div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="dietary_preferences">
-                            <i class="fas fa-utensils"></i>
-                            Dietary Preferences
-                        </label>
-                        <select id="dietary_preferences" name="dietary_preferences">
-                            <option value="">No specific preferences</option>
-                            <option value="vegetarian">Vegetarian</option>
-                            <option value="vegan">Vegan</option>
-                            <option value="jain">Jain Vegetarian</option>
-                            <option value="gluten-free">Gluten-free</option>
-                            <option value="other">Other (please specify in message)</option>
-                        </select>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="special_message">
-                            <i class="fas fa-comment"></i>
-                            Special Message or Requests
-                        </label>
-                        <textarea id="special_message" name="special_message" rows="4" placeholder="Any special requests or blessings for the new home..."></textarea>
-                    </div>
-                    
-                    <!-- Hidden field for form identification -->
-                    <input type="hidden" name="_subject" value="New RSVP for Griha Pravesh Ceremony">
-                    <input type="hidden" name="_next" value="#thank-you">
-                    <input type="hidden" name="_captcha" value="false">
-                    
-                    <button type="submit" class="submit-btn">
-                        <i class="fas fa-paper-plane"></i>
-                        <span class="btn-text">Send RSVP</span>
-                        <span class="loading-spinner hidden">
-                            <i class="fas fa-spinner fa-spin"></i>
-                        </span>
-                    </button>
-                </form>
-                
-                <!-- Success/Error Messages -->
-                <div id="form-success" class="form-message success-message hidden">
-                    <i class="fas fa-check-circle"></i>
-                    <h3>Thank You!</h3>
-                    <p>Your RSVP has been received. We look forward to celebrating with you!</p>
-                </div>
-                
-                <div id="form-error" class="form-message error-message hidden">
-                    <i class="fas fa-exclamation-triangle"></i>
-                    <h3>Oops! Something went wrong</h3>
-                    <p>Please try again or contact us directly at +1 123 456 789</p>
+                    <p>Please let us know if you will be joining us for this auspicious occasion.</p>
                 </div>
             </div>
         </section>
@@ -305,8 +210,7 @@ html_content = '''<!DOCTYPE html>
         <!-- Share Section -->
         <section class="share-section">
             <div class="container">
-                <h2>Share The Celebration</h2>
-                <p>Help us spread the joy by sharing this invitation</p>
+                <h2>Share all your memorable clicks here!</h2>
                 
                 <div class="share-buttons">
                     <button class="share-btn whatsapp" onclick="shareInvitation('whatsapp')">
@@ -335,20 +239,18 @@ html_content = '''<!DOCTYPE html>
                 <div class="footer-content">
                     <div class="footer-blessing">
                         <div class="om-small">ॐ</div>
-                        <p>मय भगवान आपके नए घर में खुशियां की बरसात करें</p>
-                        <p><em>May God shower happiness in your new home</em></p>
+                        <p>भगवान इस घर में खुशियों की बरसात करें</p>
+                        <p><em>May God shower happiness in this home</em></p>
                     </div>
                     
                     <div class="footer-contact">
-                        <p>For any queries, please contact:</p>
-                        <p><strong>The Sharma Family</strong></p>
-                        <p>Phone: <a href="tel:+11234567890">+1 123 456 789</a></p>
-                        <p>Email: <a href="mailto:family@example.com">family@example.com</a></p>
+                        <p>Please contact:</p>
+                        <p>Phone: <a href="tel:+918237886137">+91 8237886137</a></p>
                     </div>
                 </div>
                 
                 <div class="footer-bottom">
-                    <p>&copy; 2024 Griha Pravesh Celebration - Made with ❤️ for our new beginning</p>
+                    <p>&copy; 2025 Griha Pravesh Celebration - Made with ❤️ for our new beginning</p>
                 </div>
             </div>
         </footer>
@@ -358,9 +260,21 @@ html_content = '''<!DOCTYPE html>
 </body>
 </html>'''
 
-# Save the HTML file
+# Save the updated HTML file
 with open('index.html', 'w', encoding='utf-8') as f:
     f.write(html_content)
 
-print("✅ Created index.html")
-print(f"File size: {len(html_content)} characters")
+print("✅ Updated index.html with all requested changes:")
+print("1. ✅ 'Inviting your gracious presence On the occasion of Our New Home!' (with bold)")
+print("2. ✅ Date changed to 'Sunday, 26th October, 2025'")
+print("3. ✅ Address updated to Sattva Bliss, Budigere Road address")
+print("4. ✅ Phone number changed to +91 8237886137")
+print("5. ✅ Map button text changed to 'Find my home' (compact)")
+print("6. ✅ Dress code component removed")
+print("7. ✅ Changed 'attendance' to 'presence'")
+print("8. ✅ RSVP form component removed")
+print("9. ✅ Share section title changed to 'Share all your memorable clicks here!'")
+print("10. ✅ Subtitle removed from share section")
+print("11. ✅ Email link removed from footer")
+print("12. ✅ Blessing changed to 'भगवान इस घर में खुशियों की बरसात करें' with English translation")
+print("13. ✅ Footer contact simplified, year changed to 2025")

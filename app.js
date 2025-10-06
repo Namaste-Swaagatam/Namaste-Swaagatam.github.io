@@ -16,7 +16,6 @@ document.addEventListener('DOMContentLoaded', function() {
             hideLoadingScreen();
             initializeInteractiveElements();
             initializeFloatingControls();
-            initializeRSVPForm();
             initializeScrollAnimations();
             initializeSharingFeatures();
             startContinuousAnimations();
@@ -175,23 +174,21 @@ document.addEventListener('DOMContentLoaded', function() {
     function toggleLanguage() {
         const translations = {
             en: {
-                'invitation-text': 'Invite Your Gracious Presence On<br>The Occasion Of Their New Home\'s',
+                'invitation-text': 'Inviting Your Gracious Presence On<br>The Occasion Of <strong>Our New Home!</strong>',
                 'ceremony-title': 'GRIHA<br>PRAVESH',
                 'section-timeline': 'Ceremony Timeline',
                 'about-title': 'About Griha Pravesh',
-                'rsvp-title': 'Please Confirm Your Attendance',
-                'rsvp-subtitle': 'Your presence will make our celebration complete!',
-                'share-title': 'Share The Celebration',
+                'confirmation-title': 'Please Confirm Your Presence',
+                'share-title': 'Share all your memorable clicks here!',
                 'lang-text': 'हिं'
             },
             hi: {
-                'invitation-text': 'हमारे नए घर के<br>गृह प्रवेश समारोह में<br>आपकी उपस्थिति का सम्मान',
+                'invitation-text': 'हमारे <strong>नए घर</strong> के<br>गृह प्रवेश समारोह में<br>आपकी उपस्थिति का सम्मान',
                 'ceremony-title': 'गृह<br>प्रवेश',
                 'section-timeline': 'समारोह कार्यक्रम',
                 'about-title': 'गृह प्रवेश के बारे में',
-                'rsvp-title': 'कृपया अपनी उपस्थिति की पुष्टि करें',
-                'rsvp-subtitle': 'आपकी उपस्थिति से हमारा उत्सव पूर्ण होगा!',
-                'share-title': 'उत्सव साझा करें',
+                'confirmation-title': 'कृपया अपनी उपस्थिति की पुष्टि करें',
+                'share-title': 'अपने यादगार पलों को यहाँ साझा करें!',
                 'lang-text': 'EN'
             }
         };
@@ -201,8 +198,7 @@ document.addEventListener('DOMContentLoaded', function() {
             'ceremony-title': document.querySelector('.ceremony-title'),
             'section-timeline': document.querySelector('.section-title'),
             'about-title': document.querySelector('.significance-text h2'),
-            'rsvp-title': document.querySelector('.rsvp-header h2'),
-            'rsvp-subtitle': document.querySelector('.rsvp-header p'),
+            'confirmation-title': document.querySelector('.confirmation-header h2'),
             'share-title': document.querySelector('.share-section h2'),
             'lang-text': document.querySelector('.lang-text')
         };
@@ -212,103 +208,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 elements[key].innerHTML = translations[currentLanguage][key];
             }
         });
-    }
-
-    function initializeRSVPForm() {
-        const form = document.getElementById('rsvp-form');
-        const submitBtn = document.querySelector('.submit-btn');
-        const successMessage = document.getElementById('form-success');
-        const errorMessage = document.getElementById('form-error');
-
-        form.addEventListener('submit', async (e) => {
-            e.preventDefault();
-
-            // Show loading state
-            const btnText = submitBtn.querySelector('.btn-text');
-            const spinner = submitBtn.querySelector('.loading-spinner');
-
-            submitBtn.disabled = true;
-            btnText.style.display = 'none';
-            spinner.classList.remove('hidden');
-
-            try {
-                // Get form data
-                const formData = new FormData(form);
-
-                // Add timestamp
-                formData.append('submission_time', new Date().toLocaleString());
-
-                // Submit to Formspree
-                const response = await fetch(form.action, {
-                    method: 'POST',
-                    body: formData,
-                    headers: {
-                        'Accept': 'application/json'
-                    }
-                });
-
-                if (response.ok) {
-                    // Success
-                    form.style.display = 'none';
-                    successMessage.classList.remove('hidden');
-
-                    // Reset form after delay
-                    setTimeout(() => {
-                        form.reset();
-                        form.style.display = 'block';
-                        successMessage.classList.add('hidden');
-                        resetSubmitButton();
-                    }, 5000);
-
-                    // Show celebration animation
-                    showCelebrationAnimation();
-
-                } else {
-                    throw new Error('Form submission failed');
-                }
-
-            } catch (error) {
-                console.error('Form submission error:', error);
-                errorMessage.classList.remove('hidden');
-                setTimeout(() => {
-                    errorMessage.classList.add('hidden');
-                }, 5000);
-                resetSubmitButton();
-            }
-        });
-
-        function resetSubmitButton() {
-            const btnText = submitBtn.querySelector('.btn-text');
-            const spinner = submitBtn.querySelector('.loading-spinner');
-
-            submitBtn.disabled = false;
-            btnText.style.display = 'inline';
-            spinner.classList.add('hidden');
-        }
-
-        // Form validation
-        const requiredFields = form.querySelectorAll('[required]');
-        requiredFields.forEach(field => {
-            field.addEventListener('blur', () => {
-                validateField(field);
-            });
-
-            field.addEventListener('input', () => {
-                if (field.classList.contains('invalid')) {
-                    validateField(field);
-                }
-            });
-        });
-
-        function validateField(field) {
-            if (!field.value.trim()) {
-                field.classList.add('invalid');
-                field.style.borderColor = '#E57373';
-            } else {
-                field.classList.remove('invalid');
-                field.style.borderColor = '#E0E0E0';
-            }
-        }
     }
 
     function initializeScrollAnimations() {
@@ -327,7 +226,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }, observerOptions);
 
         // Observe sections for scroll animations
-        const sections = document.querySelectorAll('.ceremony-details, .significance-section, .rsvp-section, .share-section');
+        const sections = document.querySelectorAll('.ceremony-details, .significance-section, .confirmation-section, .share-section');
         sections.forEach(section => {
             section.style.opacity = '0';
             section.style.transform = 'translateY(30px)';
@@ -400,33 +299,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    function showCelebrationAnimation() {
-        // Create celebration effect
-        const celebration = document.createElement('div');
-        celebration.style.position = 'fixed';
-        celebration.style.top = '0';
-        celebration.style.left = '0';
-        celebration.style.width = '100%';
-        celebration.style.height = '100%';
-        celebration.style.pointerEvents = 'none';
-        celebration.style.zIndex = '10000';
-        celebration.innerHTML = '🎉🌸🎊🌺🎉🌸🎊🌺';
-        celebration.style.fontSize = '2rem';
-        celebration.style.display = 'flex';
-        celebration.style.justifyContent = 'center';
-        celebration.style.alignItems = 'center';
-        celebration.style.animation = 'fadeInUp 1s ease, glow 2s ease-in-out infinite alternate';
-
-        document.body.appendChild(celebration);
-
-        setTimeout(() => {
-            celebration.style.opacity = '0';
-            setTimeout(() => {
-                document.body.removeChild(celebration);
-            }, 1000);
-        }, 3000);
-    }
-
     function showNotification(message) {
         const notification = document.createElement('div');
         notification.style.position = 'fixed';
@@ -467,19 +339,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }, { once: true });
 
-    // Handle form field animations
-    const formInputs = document.querySelectorAll('.form-group input, .form-group select, .form-group textarea');
-    formInputs.forEach(input => {
-        input.addEventListener('focus', () => {
-            input.parentElement.style.transform = 'scale(1.02)';
-            input.parentElement.style.transition = 'transform 0.3s ease';
-        });
-
-        input.addEventListener('blur', () => {
-            input.parentElement.style.transform = 'scale(1)';
-        });
-    });
-
     // Handle mobile touch interactions
     if ('ontouchstart' in window) {
         const touchElements = document.querySelectorAll('.lotus-petals, .diya, .om-symbol');
@@ -499,7 +358,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function initializeAccessibilityFeatures() {
         // Keyboard navigation for custom elements
-        const interactiveElements = document.querySelectorAll('.control-btn, .map-link, .submit-btn, .share-btn');
+        const interactiveElements = document.querySelectorAll('.control-btn, .map-link, .share-btn');
 
         interactiveElements.forEach(element => {
             element.addEventListener('keydown', (e) => {
@@ -519,13 +378,6 @@ document.addEventListener('DOMContentLoaded', function() {
         const lotusFlowers = document.querySelectorAll('.lotus-petals');
         lotusFlowers.forEach((lotus, index) => {
             lotus.setAttribute('aria-label', `Decorative lotus flower ${index + 1}`);
-        });
-
-        // Announce form submission status to screen readers
-        const formMessages = document.querySelectorAll('.form-message');
-        formMessages.forEach(message => {
-            message.setAttribute('role', 'status');
-            message.setAttribute('aria-live', 'polite');
         });
     }
 
