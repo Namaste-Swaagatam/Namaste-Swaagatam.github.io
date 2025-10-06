@@ -510,42 +510,6 @@ body {
   transform: translateY(-2px);
 }
 
-.share-btn.whatsapp {
-  background: #25D366;
-  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
-}
-
-.share-btn.whatsapp:hover {
-  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
-}
-
-.share-btn.email {
-  background: #FF6B35;
-  box-shadow: 0 4px 12px rgba(255, 107, 53, 0.3);
-}
-
-.share-btn.email:hover {
-  box-shadow: 0 6px 20px rgba(255, 107, 53, 0.4);
-}
-
-.share-btn.copy {
-  background: var(--primary-pink);
-  box-shadow: 0 4px 12px var(--pink-shadow);
-}
-
-.share-btn.copy:hover {
-  box-shadow: 0 6px 20px var(--pink-shadow);
-}
-
-.share-btn.facebook {
-  background: #4267B2;
-  box-shadow: 0 4px 12px rgba(66, 103, 178, 0.3);
-}
-
-.share-btn.facebook:hover {
-  box-shadow: 0 6px 20px rgba(66, 103, 178, 0.4);
-}
-
 .share-btn.google-drive {
   background: #4285F4;
   box-shadow: 0 4px 12px rgba(66, 133, 244, 0.3);
@@ -780,12 +744,10 @@ body {
   }
 
   .share-buttons {
-    flex-direction: column;
-    align-items: center;
+    justify-content: center;
   }
 
   .share-btn {
-    width: 200px;
     justify-content: center;
   }
 }

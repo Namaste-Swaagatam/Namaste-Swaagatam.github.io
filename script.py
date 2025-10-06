@@ -1,4 +1,4 @@
-# Create the updated HTML file with all the requested changes
+# Update HTML file - remove WhatsApp, Email, Copy Link, and Facebook buttons
 html_content = '''<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -177,22 +177,6 @@ html_content = '''<!DOCTYPE html>
                 <h2>Share all your memorable clicks here!</h2>
                 
                 <div class="share-buttons centered">
-                    <button class="share-btn whatsapp" onclick="shareInvitation('whatsapp')">
-                        <i class="fab fa-whatsapp"></i>
-                        WhatsApp
-                    </button>
-                    <button class="share-btn email" onclick="shareInvitation('email')">
-                        <i class="fas fa-envelope"></i>
-                        Email
-                    </button>
-                    <button class="share-btn copy" onclick="copyInvitationLink()">
-                        <i class="fas fa-copy"></i>
-                        Copy Link
-                    </button>
-                    <button class="share-btn facebook" onclick="shareInvitation('facebook')">
-                        <i class="fab fa-facebook"></i>
-                        Facebook
-                    </button>
                     <a href="https://drive.google.com/drive/folders/1C4bmnKDAwhjiLDHHANP-gBfIm4wXzhnZ?usp=sharing" target="_blank" class="share-btn google-drive">
                         <i class="fab fa-google-drive"></i>
                         Google Drive
@@ -232,12 +216,13 @@ html_content = '''<!DOCTYPE html>
 with open('index.html', 'w', encoding='utf-8') as f:
     f.write(html_content)
 
-print("✅ Updated index.html with all requested changes:")
-print("1. ✅ Timeline section completely removed")
-print("2. ✅ Added '!' after 'Please Confirm Your Presence!'")
-print("3. ✅ Removed 'Please let us know...' sentence")
-print("4. ✅ Updated confirmation text to new message about new beginnings")
-print("5. ✅ Added Google Drive icon with your link in share section")
-print("6. ✅ Centered share buttons")
-print("7. ✅ Made footer contact section vertically centered")
-print("8. ✅ Made 'Find my home' button centered and compact")
+print("✅ CHANGES TO index.html:")
+print("REMOVED (Lines 169-180):")
+print("- WhatsApp button: <button class='share-btn whatsapp' onclick='shareInvitation('whatsapp')'><i class='fab fa-whatsapp'></i>WhatsApp</button>")
+print("- Email button: <button class='share-btn email' onclick='shareInvitation('email')'><i class='fas fa-envelope'></i>Email</button>")
+print("- Copy Link button: <button class='share-btn copy' onclick='copyInvitationLink()'><i class='fas fa-copy'></i>Copy Link</button>")
+print("- Facebook button: <button class='share-btn facebook' onclick='shareInvitation('facebook')'><i class='fab fa-facebook'></i>Facebook</button>")
+print("")
+print("KEPT:")
+print("- Only Google Drive button remains in share section")
+print("- Font Awesome CDN still included (for Google Drive icon and other icons in the site)")

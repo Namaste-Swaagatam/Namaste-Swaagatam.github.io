@@ -17,7 +17,6 @@ document.addEventListener('DOMContentLoaded', function() {
             initializeInteractiveElements();
             initializeFloatingControls();
             initializeScrollAnimations();
-            initializeSharingFeatures();
             startContinuousAnimations();
         }, 4500);
     }
@@ -232,41 +231,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    function initializeSharingFeatures() {
-        // This will be called from HTML onclick events
-        window.shareInvitation = function(platform) {
-            const url = window.location.href;
-            const text = 'Join us for our Griha Pravesh ceremony! 🏠✨';
-
-            switch(platform) {
-                case 'whatsapp':
-                    window.open(`https://wa.me/?text=${encodeURIComponent(text + ' ' + url)}`, '_blank');
-                    break;
-                case 'email':
-                    window.open(`mailto:?subject=${encodeURIComponent('Griha Pravesh Invitation')}&body=${encodeURIComponent(text + '\n\n' + url)}`, '_blank');
-                    break;
-                case 'facebook':
-                    window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`, '_blank');
-                    break;
-            }
-        };
-
-        window.copyInvitationLink = function() {
-            navigator.clipboard.writeText(window.location.href).then(() => {
-                showNotification('Invitation link copied to clipboard!');
-            }).catch(() => {
-                // Fallback for older browsers
-                const textArea = document.createElement('textarea');
-                textArea.value = window.location.href;
-                document.body.appendChild(textArea);
-                textArea.select();
-                document.execCommand('copy');
-                document.body.removeChild(textArea);
-                showNotification('Invitation link copied!');
-            });
-        };
-    }
-
     function startContinuousAnimations() {
         // Continuous hanging decoration motion
         const beadStrings = document.querySelectorAll('.bead-string');
@@ -345,8 +309,8 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeAccessibilityFeatures();
 
     function initializeAccessibilityFeatures() {
-        // Keyboard navigation for custom elements
-        const interactiveElements = document.querySelectorAll('.control-btn, .map-link, .share-btn');
+        // Keyboard navigation for custom elements (removed share-btn from selector)
+        const interactiveElements = document.querySelectorAll('.control-btn, .map-link');
 
         interactiveElements.forEach(element => {
             element.addEventListener('keydown', (e) => {

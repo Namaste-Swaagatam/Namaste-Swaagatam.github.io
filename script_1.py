@@ -1,4 +1,4 @@
-# Create updated CSS with centered map button and trimmed styling
+# Update CSS file - remove styling for WhatsApp, Email, Copy Link, Facebook buttons
 css_content = ''':root {
   /* Theme Colors Based on Pink Architectural Design */
   --primary-pink: #E91E63;
@@ -511,42 +511,6 @@ body {
   transform: translateY(-2px);
 }
 
-.share-btn.whatsapp {
-  background: #25D366;
-  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
-}
-
-.share-btn.whatsapp:hover {
-  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
-}
-
-.share-btn.email {
-  background: #FF6B35;
-  box-shadow: 0 4px 12px rgba(255, 107, 53, 0.3);
-}
-
-.share-btn.email:hover {
-  box-shadow: 0 6px 20px rgba(255, 107, 53, 0.4);
-}
-
-.share-btn.copy {
-  background: var(--primary-pink);
-  box-shadow: 0 4px 12px var(--pink-shadow);
-}
-
-.share-btn.copy:hover {
-  box-shadow: 0 6px 20px var(--pink-shadow);
-}
-
-.share-btn.facebook {
-  background: #4267B2;
-  box-shadow: 0 4px 12px rgba(66, 103, 178, 0.3);
-}
-
-.share-btn.facebook:hover {
-  box-shadow: 0 6px 20px rgba(66, 103, 178, 0.4);
-}
-
 .share-btn.google-drive {
   background: #4285F4;
   box-shadow: 0 4px 12px rgba(66, 133, 244, 0.3);
@@ -781,12 +745,10 @@ body {
   }
   
   .share-buttons {
-    flex-direction: column;
-    align-items: center;
+    justify-content: center;
   }
   
   .share-btn {
-    width: 200px;
     justify-content: center;
   }
 }
@@ -847,10 +809,17 @@ body {
 with open('style.css', 'w', encoding='utf-8') as f:
     f.write(css_content)
 
-print("✅ Updated style.css with:")
-print("- Centered and trimmed 'Find my home' button")
-print("- Google Drive button styling")
-print("- Centered share buttons")
-print("- Vertically centered footer contact section")
-print("- Removed timeline section styling")
-print("- Updated confirmation section styling")
+print("✅ CHANGES TO style.css:")
+print("REMOVED (Lines 590-634):")
+print("- .share-btn.whatsapp { background: #25D366; }")
+print("- .share-btn.whatsapp:hover { box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4); }")
+print("- .share-btn.email { background: #FF6B35; }")
+print("- .share-btn.email:hover { box-shadow: 0 6px 20px rgba(255, 107, 53, 0.4); }")
+print("- .share-btn.copy { background: var(--primary-pink); }")
+print("- .share-btn.copy:hover { box-shadow: 0 6px 20px var(--pink-shadow); }")
+print("- .share-btn.facebook { background: #4267B2; }")
+print("- .share-btn.facebook:hover { box-shadow: 0 6px 20px rgba(66, 103, 178, 0.4); }")
+print("")
+print("KEPT:")
+print("- .share-btn.google-drive styling (blue theme)")
+print("- General .share-btn styling for base button appearance")

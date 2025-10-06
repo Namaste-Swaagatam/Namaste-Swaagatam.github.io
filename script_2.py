@@ -1,4 +1,4 @@
-# Create updated JavaScript with removed timeline functionality
+# Update JavaScript file - remove all functions related to WhatsApp, Email, Copy Link, Facebook
 js_content = '''// Pink Architectural Griha Pravesh Invitation - Interactive Elements
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize the application
@@ -18,7 +18,6 @@ document.addEventListener('DOMContentLoaded', function() {
             initializeInteractiveElements();
             initializeFloatingControls();
             initializeScrollAnimations();
-            initializeSharingFeatures();
             startContinuousAnimations();
         }, 4500);
     }
@@ -233,41 +232,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    function initializeSharingFeatures() {
-        // This will be called from HTML onclick events
-        window.shareInvitation = function(platform) {
-            const url = window.location.href;
-            const text = 'Join us for our Griha Pravesh ceremony! 🏠✨';
-            
-            switch(platform) {
-                case 'whatsapp':
-                    window.open(`https://wa.me/?text=${encodeURIComponent(text + ' ' + url)}`, '_blank');
-                    break;
-                case 'email':
-                    window.open(`mailto:?subject=${encodeURIComponent('Griha Pravesh Invitation')}&body=${encodeURIComponent(text + '\\n\\n' + url)}`, '_blank');
-                    break;
-                case 'facebook':
-                    window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`, '_blank');
-                    break;
-            }
-        };
-        
-        window.copyInvitationLink = function() {
-            navigator.clipboard.writeText(window.location.href).then(() => {
-                showNotification('Invitation link copied to clipboard!');
-            }).catch(() => {
-                // Fallback for older browsers
-                const textArea = document.createElement('textarea');
-                textArea.value = window.location.href;
-                document.body.appendChild(textArea);
-                textArea.select();
-                document.execCommand('copy');
-                document.body.removeChild(textArea);
-                showNotification('Invitation link copied!');
-            });
-        };
-    }
-    
     function startContinuousAnimations() {
         // Continuous hanging decoration motion
         const beadStrings = document.querySelectorAll('.bead-string');
@@ -346,8 +310,8 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeAccessibilityFeatures();
     
     function initializeAccessibilityFeatures() {
-        // Keyboard navigation for custom elements
-        const interactiveElements = document.querySelectorAll('.control-btn, .map-link, .share-btn');
+        // Keyboard navigation for custom elements (removed share-btn from selector)
+        const interactiveElements = document.querySelectorAll('.control-btn, .map-link');
         
         interactiveElements.forEach(element => {
             element.addEventListener('keydown', (e) => {
@@ -378,27 +342,30 @@ document.addEventListener('DOMContentLoaded', function() {
 with open('app.js', 'w', encoding='utf-8') as f:
     f.write(js_content)
 
-print("✅ Updated app.js with:")
-print("- Removed timeline section functionality")
-print("- Updated language translations")
-print("- Streamlined scroll animations")
-print("- Maintained all other interactive features")
+print("✅ CHANGES TO app.js:")
+print("REMOVED (Lines 171-210):")
+print("- initializeSharingFeatures() function")
+print("- window.shareInvitation() function for WhatsApp, Email, Facebook")
+print("- window.copyInvitationLink() function")
+print("- Call to initializeSharingFeatures() in initializeApp()")
+print("- Share button accessibility handlers")
+print("")
+print("KEPT:")
+print("- All other interactive functionality (Om symbol, lotus, diyas, etc.)")
+print("- Music toggle and language switcher")
+print("- Loading screen and entrance animations")
+print("- Google Drive link works as regular HTML link (no JS needed)")
 
-print("\n🎉 ALL FINAL UPDATES COMPLETE!")
-print("\n📁 Final updated files:")
-print("1. index.html - All requested changes implemented")
-print("2. style.css - Centered, trimmed styling with Google Drive button")
-print("3. app.js - Streamlined functionality without timeline")
-
-print("\n✅ SUMMARY OF LATEST CHANGES:")
-print("1. ✅ Timeline section completely removed")
-print("2. ✅ Added '!' after 'Please Confirm Your Presence!'")
-print("3. ✅ Removed 'Please let us know...' sentence")
-print("4. ✅ Updated confirmation message to new beginning text")
-print("5. ✅ Added Google Drive icon with your link")
-print("6. ✅ Centered all share buttons")
-print("7. ✅ Made footer contact section vertically centered")
-print("8. ✅ Trimmed 'Find my home' button to fit content only")
+print("\n🎉 ALL REMOVALS COMPLETE!")
+print("\n📁 Summary of all changes:")
+print("1. ✅ HTML: Removed WhatsApp, Email, Copy Link, Facebook buttons")
+print("2. ✅ CSS: Removed styling for removed buttons")  
+print("3. ✅ JS: Removed all sharing functions and event handlers")
+print("")
+print("🎯 WHAT REMAINS:")
+print("✅ Google Drive button only (works as direct link)")
+print("✅ All other invitation functionality intact")
+print("✅ Font Awesome CDN kept (needed for other icons)")
+print("✅ Pink architectural theme preserved")
 
 print("\n🚀 Ready to upload to GitHub!")
-print("Your invitation is now perfectly customized with all changes.")
