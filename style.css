@@ -1,17 +1,17 @@
 :root {
   /* Theme Colors Based on Pink Architectural Design */
-  --primary-pink: #E91E63;
-  --deep-pink: #D81B60;
-  --light-pink: #F48FB1;
-  --cream-bg: #FFF8E7;
-  --accent-green: #4CAF50;
-  --dark-green: #388E3C;
-  --gold: #FFD700;
+  --primary-pink: #D4696E;
+  --deep-pink: #A84448;
+  --light-pink: #E8A0A4;
+  --cream-bg: #FFF4E6;
+  --accent-green: #8B7355;
+  --dark-green: #6B563F;
+  --gold: #D4A574;
   --white: #FFFFFF;
-  --dark-text: #2C1810;
+  --dark-text: #3D2416;
   --light-gray: #F5F5F5;
-  --shadow: rgba(0, 0, 0, 0.2);
-  --pink-shadow: rgba(233, 30, 99, 0.3);
+  --shadow: rgba(0, 0, 0, 0.25);
+  --pink-shadow: rgba(212, 105, 110, 0.35);
 
   /* Gradients */
   --arch-gradient: linear-gradient(135deg, var(--primary-pink) 0%, var(--deep-pink) 100%);
