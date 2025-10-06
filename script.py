@@ -1,4 +1,4 @@
-# Update HTML file to replace the kalash-visual icons with lotus-om animation
+# Update HTML file to simplify and center the footer
 html_content = '''<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -200,16 +200,11 @@ html_content = '''<!DOCTYPE html>
         <!-- Footer -->
         <footer class="footer">
             <div class="container">
-                <div class="footer-content centered-vertical">
+                <div class="footer-content centered">
                     <div class="footer-blessing">
                         <div class="om-small">ॐ</div>
                         <p>भगवान इस घर में खुशियों की बरसात करें</p>
                         <p><em>May God shower happiness in this home</em></p>
-                    </div>
-                    
-                    <div class="footer-contact">
-                        <p>Please contact:</p>
-                        <p>Phone: <a href="tel:+918237886137">+91 8237886137</a></p>
                     </div>
                 </div>
                 
@@ -229,10 +224,11 @@ with open('index.html', 'w', encoding='utf-8') as f:
     f.write(html_content)
 
 print("✅ Updated index.html:")
-print("REPLACED (Lines 137-147):")
-print("- Old kalash-visual with emoji icons")
-print("NEW (Lines 137-157):")
-print("- Beautiful animated lotus with 8 petals")
-print("- Om symbol in center")
-print("- Golden glow effect")
-print("- Smooth opening animation")
+print("REMOVED:")
+print("- Contact section with phone number")
+print("- Grid layout (footer-content centered-vertical)")
+print("")
+print("CHANGED:")
+print("- Footer blessing section now centered")
+print("- Single column layout for clean, centered appearance")
+print("- Om symbol, Hindi blessing, and English translation all centered")

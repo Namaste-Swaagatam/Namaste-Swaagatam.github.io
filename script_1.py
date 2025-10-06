@@ -1,4 +1,4 @@
-# Update CSS file with beautiful lotus-om animation
+# Update CSS file to center the footer content
 css_content = ''':root {
   /* Theme Colors Based on Pink Architectural Design */
   --primary-pink: #E91E63;
@@ -632,15 +632,14 @@ body {
 }
 
 .footer-content {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 3rem;
-  margin-bottom: 2rem;
+  display: flex;
+  justify-content: center;
   align-items: center;
+  margin-bottom: 2rem;
 }
 
-.footer-content.centered-vertical {
-  align-items: center;
+.footer-content.centered {
+  justify-content: center;
 }
 
 .footer-blessing {
@@ -661,26 +660,6 @@ body {
 .footer-blessing em {
   opacity: 0.8;
   font-style: italic;
-}
-
-.footer-contact {
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.footer-contact p {
-  margin-bottom: 0.5rem;
-}
-
-.footer-contact a {
-  color: var(--gold);
-  text-decoration: none;
-}
-
-.footer-contact a:hover {
-  text-decoration: underline;
 }
 
 .footer-bottom {
@@ -843,11 +822,6 @@ body {
     gap: 2rem;
   }
   
-  .footer-content {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-  }
-  
   .share-buttons {
     justify-content: center;
   }
@@ -964,20 +938,15 @@ with open('style.css', 'w', encoding='utf-8') as f:
     f.write(css_content)
 
 print("✅ Updated style.css:")
-print("ADDED (Lines 420-600):")
-print("- Beautiful lotus-om animation container")
-print("- 8 individual lotus petals with pink gradient")
-print("- Sequential petal opening animation (petalBloom)")
-print("- Om symbol appearing in center after petals open")
-print("- Golden glow effect pulsing around lotus")
-print("- Responsive design for mobile devices")
-print("- Accessibility support (reduced motion)")
+print("CHANGED:")
+print("- .footer-content: removed grid layout")
+print("- .footer-content.centered: now uses flexbox for perfect centering")
+print("- .footer-blessing: centered text alignment")
+print("- Removed all .footer-contact styling (no longer needed)")
 print("")
-print("REMOVED:")
-print("- Old kalash, kalash-leaves, diya-pair styling")
-print("")
-print("🌸 ANIMATION SEQUENCE:")
-print("1. Petals appear one by one (0.2s intervals)")
-print("2. Om symbol appears in center (after 2s)")
-print("3. Golden glow pulses around entire lotus")
-print("4. 4-second loop with smooth transitions")
+print("RESULT:")
+print("- Om symbol (ॐ) perfectly centered")
+print("- Hindi blessing centered below Om")
+print("- English translation centered below Hindi")
+print("- Clean, minimalist footer design")
+print("- Copyright notice remains at bottom")

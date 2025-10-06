@@ -631,15 +631,14 @@ body {
 }
 
 .footer-content {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 3rem;
-  margin-bottom: 2rem;
+  display: flex;
+  justify-content: center;
   align-items: center;
+  margin-bottom: 2rem;
 }
 
-.footer-content.centered-vertical {
-  align-items: center;
+.footer-content.centered {
+  justify-content: center;
 }
 
 .footer-blessing {
@@ -660,26 +659,6 @@ body {
 .footer-blessing em {
   opacity: 0.8;
   font-style: italic;
-}
-
-.footer-contact {
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.footer-contact p {
-  margin-bottom: 0.5rem;
-}
-
-.footer-contact a {
-  color: var(--gold);
-  text-decoration: none;
-}
-
-.footer-contact a:hover {
-  text-decoration: underline;
 }
 
 .footer-bottom {
@@ -838,11 +817,6 @@ body {
   }
 
   .significance-content {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-  }
-
-  .footer-content {
     grid-template-columns: 1fr;
     gap: 2rem;
   }
