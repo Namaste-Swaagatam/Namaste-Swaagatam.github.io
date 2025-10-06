@@ -1,4 +1,4 @@
-# Update HTML file to simplify and center the footer
+# Update HTML file with all requested changes
 html_content = '''<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,20 +23,18 @@ html_content = '''<!DOCTYPE html>
         </div>
     </div>
 
-    <!-- Floating Controls -->
+    <!-- Floating Controls (Music only, no language toggle) -->
     <div class="floating-controls">
         <button id="music-toggle" class="control-btn" title="Toggle Background Music">
             <i class="fas fa-music"></i>
         </button>
-        <button id="lang-toggle" class="control-btn" title="Switch Language">
-            <span class="lang-text">हिं</span>
-        </button>
     </div>
 
-    <!-- Background Music -->
-    <audio id="background-music" loop>
-        <source src="https://www.soundjay.com/misc/sounds/magic-chime-02.mp3" type="audio/mpeg">
-        <source src="https://www.zapsplat.com/music/temple-bell-single-ring-2/" type="audio/ogg">
+    <!-- Background Music (update path for your uploaded file) -->
+    <audio id="background-music" loop preload="auto">
+        <source src="background-music.mp3" type="audio/mpeg">
+        <source src="background-music.ogg" type="audio/ogg">
+        Your browser does not support audio playback.
     </audio>
 
     <!-- Main Content -->
@@ -145,24 +143,24 @@ html_content = '''<!DOCTYPE html>
                     </div>
                     
                     <div class="significance-visual">
-                        <div class="lotus-om-animation">
-                            <!-- Animated Lotus with Om Symbol -->
-                            <div class="animated-lotus">
-                                <!-- Lotus Petals (will animate open) -->
-                                <div class="lotus-petal petal-1"></div>
-                                <div class="lotus-petal petal-2"></div>
-                                <div class="lotus-petal petal-3"></div>
-                                <div class="lotus-petal petal-4"></div>
-                                <div class="lotus-petal petal-5"></div>
-                                <div class="lotus-petal petal-6"></div>
-                                <div class="lotus-petal petal-7"></div>
-                                <div class="lotus-petal petal-8"></div>
+                        <div class="rangoli-om-animation">
+                            <!-- Rangoli Bloom Animation -->
+                            <div class="rangoli-container">
+                                <!-- Rangoli petals/patterns -->
+                                <div class="rangoli-pattern pattern-1"></div>
+                                <div class="rangoli-pattern pattern-2"></div>
+                                <div class="rangoli-pattern pattern-3"></div>
+                                <div class="rangoli-pattern pattern-4"></div>
+                                <div class="rangoli-pattern pattern-5"></div>
+                                <div class="rangoli-pattern pattern-6"></div>
+                                <div class="rangoli-pattern pattern-7"></div>
+                                <div class="rangoli-pattern pattern-8"></div>
                                 
-                                <!-- Om Symbol in Center (appears after petals open) -->
-                                <div class="lotus-om-center">ॐ</div>
+                                <!-- Om Symbol in Center -->
+                                <div class="rangoli-om-center">ॐ</div>
                                 
-                                <!-- Golden Glow Effect -->
-                                <div class="lotus-glow"></div>
+                                <!-- Golden particles effect -->
+                                <div class="rangoli-particles"></div>
                             </div>
                         </div>
                     </div>
@@ -200,16 +198,16 @@ html_content = '''<!DOCTYPE html>
         <!-- Footer -->
         <footer class="footer">
             <div class="container">
-                <div class="footer-content centered">
+                <div class="footer-content">
                     <div class="footer-blessing">
                         <div class="om-small">ॐ</div>
-                        <p>भगवान इस घर में खुशियों की बरसात करें</p>
-                        <p><em>May God shower happiness in this home</em></p>
+                        <p>भगवान इस घर में खुशियों की बरसात करें।</p>
+                        <p><em>May God shower happiness in this home!</em></p>
                     </div>
                 </div>
                 
                 <div class="footer-bottom">
-                    <p>&copy; 2025 Griha Pravesh Celebration - Made with ❤️ for our new beginning</p>
+                    <p>&copy; 2025 Griha Pravesh Celebration - Made with ❤️ for our new beginning.</p>
                 </div>
             </div>
         </footer>
@@ -224,11 +222,11 @@ with open('index.html', 'w', encoding='utf-8') as f:
     f.write(html_content)
 
 print("✅ Updated index.html:")
-print("REMOVED:")
-print("- Contact section with phone number")
-print("- Grid layout (footer-content centered-vertical)")
-print("")
-print("CHANGED:")
-print("- Footer blessing section now centered")
-print("- Single column layout for clean, centered appearance")
-print("- Om symbol, Hindi blessing, and English translation all centered")
+print("1. ✅ Removed language toggle button (Hindi functionality)")
+print("2. ✅ Added Hindi fullstop (।) after Hindi blessing")
+print("3. ✅ Added exclamation (!) after English blessing")
+print("4. ✅ Added fullstop (.) after 'made with ❤️' line")
+print("5. ✅ Replaced lotus animation with rangoli animation")
+print("6. ✅ Updated audio file path to 'background-music.mp3'")
+print("7. ✅ Added preload='auto' for better audio loading")
+print("8. ✅ Proper footer structure with centered content")

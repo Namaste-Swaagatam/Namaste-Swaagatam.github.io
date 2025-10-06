@@ -15,7 +15,7 @@
 
   /* Gradients */
   --arch-gradient: linear-gradient(135deg, var(--primary-pink) 0%, var(--deep-pink) 100%);
-  --lotus-gradient: radial-gradient(circle, var(--light-pink) 0%, var(--primary-pink) 100%);
+  --rangoli-gradient: linear-gradient(45deg, var(--primary-pink) 0%, var(--gold) 50%, var(--deep-pink) 100%);
   --green-gradient: linear-gradient(45deg, var(--accent-green) 0%, var(--dark-green) 100%);
 
   /* Spacing */
@@ -100,13 +100,11 @@ body {
 .loading-dots span:nth-child(1) { animation-delay: -0.32s; }
 .loading-dots span:nth-child(2) { animation-delay: -0.16s; }
 
-/* ===== FLOATING CONTROLS ===== */
+/* ===== FLOATING CONTROLS (Music only) ===== */
 .floating-controls {
   position: fixed;
   top: 2rem;
   right: 2rem;
-  display: flex;
-  gap: 1rem;
   z-index: 1000;
 }
 
@@ -129,11 +127,6 @@ body {
 .control-btn:hover {
   transform: translateY(-2px);
   box-shadow: 0 6px 20px var(--pink-shadow);
-}
-
-.lang-text {
-  font-family: 'Noto Sans Devanagari', serif;
-  font-weight: 600;
 }
 
 /* ===== HERO SECTION ===== */
@@ -361,7 +354,6 @@ body {
   font-size: 0.9rem;
   transition: all 0.3s ease;
   box-shadow: 0 2px 8px rgba(255, 215, 0, 0.3);
-  /* Trim the button to fit content only */
   width: auto;
   min-width: auto;
 }
@@ -413,139 +405,139 @@ body {
   align-items: center;
 }
 
-/* ===== BEAUTIFUL LOTUS-OM ANIMATION ===== */
-.lotus-om-animation {
+/* ===== BEAUTIFUL RANGOLI-OM ANIMATION ===== */
+.rangoli-om-animation {
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 3rem;
 }
 
-.animated-lotus {
+.rangoli-container {
   position: relative;
-  width: 200px;
-  height: 200px;
+  width: 220px;
+  height: 220px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-/* Lotus Petals */
-.lotus-petal {
+/* Rangoli Patterns */
+.rangoli-pattern {
   position: absolute;
-  width: 40px;
-  height: 80px;
-  background: linear-gradient(135deg, #FFB6C1 0%, #FF69B4 50%, #E91E63 100%);
-  border-radius: 20px 20px 5px 5px;
-  transform-origin: center bottom;
+  width: 60px;
+  height: 20px;
+  background: var(--rangoli-gradient);
+  border-radius: 30px;
+  transform-origin: center;
   opacity: 0;
-  animation: petalBloom 4s ease-in-out infinite;
-  box-shadow: 0 4px 12px rgba(233, 30, 99, 0.3);
+  animation: rangoliBloom 4s ease-in-out infinite;
+  box-shadow: 0 2px 8px rgba(233, 30, 99, 0.4);
 }
 
-/* Individual petal positioning and animation delays */
-.petal-1 { 
-  transform: rotate(0deg) translateY(-60px); 
+/* Individual pattern positioning and animation delays */
+.pattern-1 { 
+  transform: rotate(0deg) translateY(-80px); 
   animation-delay: 0s; 
 }
-.petal-2 { 
-  transform: rotate(45deg) translateY(-60px); 
-  animation-delay: 0.2s; 
+.pattern-2 { 
+  transform: rotate(45deg) translateY(-80px); 
+  animation-delay: 0.15s; 
 }
-.petal-3 { 
-  transform: rotate(90deg) translateY(-60px); 
-  animation-delay: 0.4s; 
+.pattern-3 { 
+  transform: rotate(90deg) translateY(-80px); 
+  animation-delay: 0.3s; 
 }
-.petal-4 { 
-  transform: rotate(135deg) translateY(-60px); 
+.pattern-4 { 
+  transform: rotate(135deg) translateY(-80px); 
+  animation-delay: 0.45s; 
+}
+.pattern-5 { 
+  transform: rotate(180deg) translateY(-80px); 
   animation-delay: 0.6s; 
 }
-.petal-5 { 
-  transform: rotate(180deg) translateY(-60px); 
-  animation-delay: 0.8s; 
+.pattern-6 { 
+  transform: rotate(225deg) translateY(-80px); 
+  animation-delay: 0.75s; 
 }
-.petal-6 { 
-  transform: rotate(225deg) translateY(-60px); 
-  animation-delay: 1s; 
+.pattern-7 { 
+  transform: rotate(270deg) translateY(-80px); 
+  animation-delay: 0.9s; 
 }
-.petal-7 { 
-  transform: rotate(270deg) translateY(-60px); 
-  animation-delay: 1.2s; 
-}
-.petal-8 { 
-  transform: rotate(315deg) translateY(-60px); 
-  animation-delay: 1.4s; 
+.pattern-8 { 
+  transform: rotate(315deg) translateY(-80px); 
+  animation-delay: 1.05s; 
 }
 
 /* Om Symbol in Center */
-.lotus-om-center {
+.rangoli-om-center {
   position: absolute;
   font-family: 'Noto Sans Devanagari', serif;
-  font-size: 3rem;
+  font-size: 3.2rem;
   color: var(--gold);
   z-index: 10;
   opacity: 0;
-  animation: omAppear 4s ease-in-out infinite;
-  animation-delay: 2s;
-  text-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
+  animation: omGlow 4s ease-in-out infinite;
+  animation-delay: 1.5s;
+  text-shadow: 0 0 25px rgba(255, 215, 0, 0.7);
 }
 
-/* Golden Glow Effect */
-.lotus-glow {
+/* Golden particles effect */
+.rangoli-particles {
   position: absolute;
-  width: 150px;
-  height: 150px;
+  width: 180px;
+  height: 180px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(255, 215, 0, 0.2) 0%, rgba(255, 215, 0, 0.1) 40%, transparent 70%);
+  background: radial-gradient(circle, rgba(255, 215, 0, 0.15) 0%, rgba(233, 30, 99, 0.1) 40%, transparent 70%);
   opacity: 0;
-  animation: glowPulse 4s ease-in-out infinite;
-  animation-delay: 1.8s;
+  animation: particleGlow 4s ease-in-out infinite;
+  animation-delay: 1.2s;
 }
 
-/* ===== LOTUS ANIMATIONS ===== */
-@keyframes petalBloom {
-  0%, 20% {
+/* ===== RANGOLI ANIMATIONS ===== */
+@keyframes rangoliBloom {
+  0%, 25% {
     opacity: 0;
-    transform: rotate(var(--rotation, 0deg)) translateY(-30px) scale(0.3);
+    transform: rotate(var(--rotation, 0deg)) translateY(-40px) scale(0.2);
   }
-  40%, 80% {
+  35%, 85% {
     opacity: 1;
-    transform: rotate(var(--rotation, 0deg)) translateY(-60px) scale(1);
+    transform: rotate(var(--rotation, 0deg)) translateY(-80px) scale(1);
   }
   100% {
     opacity: 0;
-    transform: rotate(var(--rotation, 0deg)) translateY(-30px) scale(0.3);
+    transform: rotate(var(--rotation, 0deg)) translateY(-40px) scale(0.2);
   }
 }
 
-@keyframes omAppear {
-  0%, 45% {
+@keyframes omGlow {
+  0%, 35% {
     opacity: 0;
-    transform: scale(0.3);
+    transform: scale(0.4);
   }
-  50%, 90% {
+  40%, 90% {
     opacity: 1;
     transform: scale(1);
-    text-shadow: 0 0 20px rgba(255, 215, 0, 0.8), 0 0 40px rgba(255, 215, 0, 0.4);
+    text-shadow: 0 0 25px rgba(255, 215, 0, 0.9), 0 0 50px rgba(255, 215, 0, 0.5);
   }
   100% {
     opacity: 0;
-    transform: scale(0.3);
+    transform: scale(0.4);
   }
 }
 
-@keyframes glowPulse {
-  0%, 45% {
+@keyframes particleGlow {
+  0%, 30% {
     opacity: 0;
-    transform: scale(0.8);
+    transform: scale(0.8) rotate(0deg);
   }
-  50%, 70% {
-    opacity: 0.6;
-    transform: scale(1.2);
+  40%, 80% {
+    opacity: 0.8;
+    transform: scale(1.3) rotate(360deg);
   }
-  90%, 100% {
+  100% {
     opacity: 0;
-    transform: scale(0.8);
+    transform: scale(0.8) rotate(720deg);
   }
 }
 
@@ -623,22 +615,25 @@ body {
   box-shadow: 0 6px 20px rgba(66, 133, 244, 0.4);
 }
 
-/* ===== FOOTER ===== */
+/* ===== FOOTER (Perfectly Centered) ===== */
 .footer {
   background: var(--dark-text);
   color: var(--white);
   padding: 3rem 0 1rem;
 }
 
-.footer-content {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 2rem;
+.footer .container {
+  max-width: 900px;
+  margin: 0 auto;
 }
 
-.footer-content.centered {
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
+  text-align: center;
+  margin-bottom: 1.5rem;
 }
 
 .footer-blessing {
@@ -647,13 +642,13 @@ body {
 
 .om-small {
   font-family: 'Noto Sans Devanagari', serif;
-  font-size: 2rem;
+  font-size: 2.2rem;
   color: var(--gold);
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
 }
 
 .footer-blessing p {
-  margin-bottom: 0.5rem;
+  margin: 0.25rem 0;
 }
 
 .footer-blessing em {
@@ -662,10 +657,14 @@ body {
 }
 
 .footer-bottom {
+  width: 100%;
   text-align: center;
-  padding-top: 2rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  opacity: 0.7;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.footer-bottom p {
+  margin: 0;
 }
 
 /* ===== ANIMATIONS ===== */
@@ -737,30 +736,12 @@ body {
   }
 }
 
-@keyframes omGlow {
-  from {
-    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-  }
-  to {
-    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3), 0 0 20px rgba(255, 255, 255, 0.5);
-  }
-}
-
 @keyframes titleGlow {
   from {
     text-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
   }
   to {
     text-shadow: 0 3px 6px rgba(0, 0, 0, 0.3), 0 0 30px rgba(255, 215, 0, 0.3);
-  }
-}
-
-@keyframes flicker {
-  0%, 100% {
-    filter: brightness(1) drop-shadow(0 0 5px rgba(255, 193, 7, 0.5));
-  }
-  50% {
-    filter: brightness(1.2) drop-shadow(0 0 15px rgba(255, 193, 7, 0.8));
   }
 }
 
@@ -773,7 +754,6 @@ body {
   .floating-controls {
     top: 1rem;
     right: 1rem;
-    gap: 0.5rem;
   }
 
   .control-btn {
@@ -829,24 +809,24 @@ body {
     justify-content: center;
   }
 
-  /* Mobile lotus animation adjustments */
-  .animated-lotus {
-    width: 150px;
-    height: 150px;
+  /* Mobile rangoli animation adjustments */
+  .rangoli-container {
+    width: 180px;
+    height: 180px;
   }
 
-  .lotus-petal {
-    width: 30px;
-    height: 60px;
+  .rangoli-pattern {
+    width: 45px;
+    height: 15px;
   }
 
-  .lotus-om-center {
-    font-size: 2rem;
+  .rangoli-om-center {
+    font-size: 2.5rem;
   }
 
-  .lotus-glow {
-    width: 120px;
-    height: 120px;
+  .rangoli-particles {
+    width: 140px;
+    height: 140px;
   }
 }
 
@@ -865,43 +845,43 @@ body {
     font-size: 2.5rem;
   }
 
-  .animated-lotus {
+  .rangoli-container {
+    width: 150px;
+    height: 150px;
+  }
+
+  .rangoli-pattern {
+    width: 35px;
+    height: 12px;
+  }
+
+  .rangoli-om-center {
+    font-size: 2rem;
+  }
+
+  .rangoli-particles {
     width: 120px;
     height: 120px;
-  }
-
-  .lotus-petal {
-    width: 25px;
-    height: 50px;
-  }
-
-  .lotus-om-center {
-    font-size: 1.5rem;
-  }
-
-  .lotus-glow {
-    width: 100px;
-    height: 100px;
   }
 }
 
 /* ===== ACCESSIBILITY ===== */
 @media (prefers-reduced-motion: reduce) {
-  .lotus-petal,
-  .lotus-om-center,
-  .lotus-glow {
+  .rangoli-pattern,
+  .rangoli-om-center,
+  .rangoli-particles {
     animation: none !important;
   }
 
-  .lotus-petal {
+  .rangoli-pattern {
     opacity: 1;
   }
 
-  .lotus-om-center {
+  .rangoli-om-center {
     opacity: 1;
   }
 
-  .lotus-glow {
+  .rangoli-particles {
     opacity: 0.3;
   }
 }
@@ -918,7 +898,7 @@ body {
     font-weight: 600;
   }
 
-  .lotus-petal {
+  .rangoli-pattern {
     background: var(--primary-pink);
     border: 2px solid var(--dark-text);
   }

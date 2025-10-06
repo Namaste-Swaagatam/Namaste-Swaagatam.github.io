@@ -5,7 +5,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Global state
     let musicPlaying = false;
-    let currentLanguage = 'en';
 
     function initializeApp() {
         // Show loading screen first
@@ -15,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
         setTimeout(() => {
             hideLoadingScreen();
             initializeInteractiveElements();
-            initializeFloatingControls();
+            initializeMusicControl();
             initializeScrollAnimations();
             startContinuousAnimations();
         }, 4500);
@@ -124,41 +123,45 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
 
-        // Initialize lotus-om animation interaction
-        const lotusAnimation = document.querySelector('.animated-lotus');
-        if (lotusAnimation) {
-            lotusAnimation.addEventListener('mouseenter', () => {
+        // Initialize rangoli-om animation interaction
+        const rangoliAnimation = document.querySelector('.rangoli-container');
+        if (rangoliAnimation) {
+            rangoliAnimation.addEventListener('mouseenter', () => {
                 // Speed up animation on hover
-                const petals = lotusAnimation.querySelectorAll('.lotus-petal');
-                const omCenter = lotusAnimation.querySelector('.lotus-om-center');
-                const glow = lotusAnimation.querySelector('.lotus-glow');
+                const patterns = rangoliAnimation.querySelectorAll('.rangoli-pattern');
+                const omCenter = rangoliAnimation.querySelector('.rangoli-om-center');
+                const particles = rangoliAnimation.querySelector('.rangoli-particles');
 
-                petals.forEach(petal => {
-                    petal.style.animationDuration = '2s';
+                patterns.forEach(pattern => {
+                    pattern.style.animationDuration = '2s';
                 });
                 if (omCenter) omCenter.style.animationDuration = '2s';
-                if (glow) glow.style.animationDuration = '2s';
+                if (particles) particles.style.animationDuration = '2s';
             });
 
-            lotusAnimation.addEventListener('mouseleave', () => {
+            rangoliAnimation.addEventListener('mouseleave', () => {
                 // Reset to normal speed
-                const petals = lotusAnimation.querySelectorAll('.lotus-petal');
-                const omCenter = lotusAnimation.querySelector('.lotus-om-center');
-                const glow = lotusAnimation.querySelector('.lotus-glow');
+                const patterns = rangoliAnimation.querySelectorAll('.rangoli-pattern');
+                const omCenter = rangoliAnimation.querySelector('.rangoli-om-center');
+                const particles = rangoliAnimation.querySelector('.rangoli-particles');
 
-                petals.forEach(petal => {
-                    petal.style.animationDuration = '4s';
+                patterns.forEach(pattern => {
+                    pattern.style.animationDuration = '4s';
                 });
                 if (omCenter) omCenter.style.animationDuration = '4s';
-                if (glow) glow.style.animationDuration = '4s';
+                if (particles) particles.style.animationDuration = '4s';
             });
         }
     }
 
-    function initializeFloatingControls() {
+    function initializeMusicControl() {
         const musicToggle = document.getElementById('music-toggle');
-        const langToggle = document.getElementById('lang-toggle');
         const backgroundMusic = document.getElementById('background-music');
+
+        if (!musicToggle || !backgroundMusic) {
+            console.log('Music elements not found');
+            return;
+        }
 
         // Music toggle functionality
         musicToggle.addEventListener('click', () => {
@@ -167,58 +170,28 @@ document.addEventListener('DOMContentLoaded', function() {
                 musicToggle.innerHTML = '<i class="fas fa-music"></i>';
                 musicToggle.style.opacity = '0.7';
                 musicPlaying = false;
+                showNotification('Music paused');
             } else {
                 backgroundMusic.play().then(() => {
                     musicToggle.innerHTML = '<i class="fas fa-volume-up"></i>';
                     musicToggle.style.opacity = '1';
                     musicPlaying = true;
+                    showNotification('Music playing');
                 }).catch(error => {
                     console.log('Music play failed:', error);
-                    showNotification('Music could not be played. Please check your browser settings.');
+                    showNotification('Music file not found. Please upload "background-music.mp3" to your repository.');
                 });
             }
         });
 
-        // Language toggle functionality
-        langToggle.addEventListener('click', () => {
-            currentLanguage = currentLanguage === 'en' ? 'hi' : 'en';
-            toggleLanguage();
+        // Check if audio file exists
+        backgroundMusic.addEventListener('canplaythrough', () => {
+            console.log('Audio file loaded successfully');
         });
-    }
 
-    function toggleLanguage() {
-        const translations = {
-            en: {
-                'invitation-text': 'Inviting Your Gracious Presence On<br>The Occasion Of <strong>Our New Home!</strong>',
-                'ceremony-title': 'GRIHA<br>PRAVESH',
-                'about-title': 'About Griha Pravesh',
-                'confirmation-title': 'Please Confirm Your Presence!',
-                'share-title': 'Share all your memorable clicks here!',
-                'lang-text': 'हिं'
-            },
-            hi: {
-                'invitation-text': 'हमारे <strong>नए घर</strong> के<br>गृह प्रवेश समारोह में<br>आपकी उपस्थिति का सम्मान',
-                'ceremony-title': 'गृह<br>प्रवेश',
-                'about-title': 'गृह प्रवेश के बारे में',
-                'confirmation-title': 'कृपया अपनी उपस्थिति की पुष्टि करें!',
-                'share-title': 'अपने यादगार पलों को यहाँ साझा करें!',
-                'lang-text': 'EN'
-            }
-        };
-
-        const elements = {
-            'invitation-text': document.querySelector('.invitation-text'),
-            'ceremony-title': document.querySelector('.ceremony-title'),
-            'about-title': document.querySelector('.significance-text h2'),
-            'confirmation-title': document.querySelector('.confirmation-header h2'),
-            'share-title': document.querySelector('.share-section h2'),
-            'lang-text': document.querySelector('.lang-text')
-        };
-
-        Object.keys(elements).forEach(key => {
-            if (elements[key] && translations[currentLanguage][key]) {
-                elements[key].innerHTML = translations[currentLanguage][key];
-            }
+        backgroundMusic.addEventListener('error', (e) => {
+            console.log('Audio file error:', e);
+            showNotification('Audio file not found. Upload "background-music.mp3" to your repository.');
         });
     }
 
@@ -234,13 +207,13 @@ document.addEventListener('DOMContentLoaded', function() {
                     entry.target.style.opacity = '1';
                     entry.target.style.transform = 'translateY(0)';
 
-                    // Special handling for lotus animation
+                    // Special handling for rangoli animation
                     if (entry.target.classList.contains('significance-section')) {
-                        const lotusAnimation = entry.target.querySelector('.animated-lotus');
-                        if (lotusAnimation) {
-                            // Slight delay before starting lotus animation
+                        const rangoliAnimation = entry.target.querySelector('.rangoli-container');
+                        if (rangoliAnimation) {
+                            // Slight delay before starting rangoli animation
                             setTimeout(() => {
-                                lotusAnimation.style.visibility = 'visible';
+                                rangoliAnimation.style.visibility = 'visible';
                             }, 500);
                         }
                     }
@@ -257,10 +230,10 @@ document.addEventListener('DOMContentLoaded', function() {
             observer.observe(section);
         });
 
-        // Initially hide lotus animation until section is visible
-        const lotusAnimation = document.querySelector('.animated-lotus');
-        if (lotusAnimation) {
-            lotusAnimation.style.visibility = 'hidden';
+        // Initially hide rangoli animation until section is visible
+        const rangoliAnimation = document.querySelector('.rangoli-container');
+        if (rangoliAnimation) {
+            rangoliAnimation.style.visibility = 'hidden';
         }
     }
 
@@ -281,15 +254,16 @@ document.addEventListener('DOMContentLoaded', function() {
     function showNotification(message) {
         const notification = document.createElement('div');
         notification.style.position = 'fixed';
-        notification.style.top = '20px';
+        notification.style.top = '80px';
         notification.style.right = '20px';
         notification.style.background = 'var(--arch-gradient)';
         notification.style.color = 'white';
-        notification.style.padding = '15px 20px';
+        notification.style.padding = '12px 18px';
         notification.style.borderRadius = '8px';
         notification.style.boxShadow = '0 4px 12px var(--pink-shadow)';
         notification.style.zIndex = '10001';
         notification.style.animation = 'fadeInUp 0.5s ease';
+        notification.style.fontSize = '0.9rem';
         notification.textContent = message;
 
         document.body.appendChild(notification);
@@ -297,7 +271,9 @@ document.addEventListener('DOMContentLoaded', function() {
         setTimeout(() => {
             notification.style.opacity = '0';
             setTimeout(() => {
-                document.body.removeChild(notification);
+                if (document.body.contains(notification)) {
+                    document.body.removeChild(notification);
+                }
             }, 500);
         }, 3000);
     }
@@ -305,22 +281,25 @@ document.addEventListener('DOMContentLoaded', function() {
     // Handle background music autoplay restrictions
     document.addEventListener('click', () => {
         const backgroundMusic = document.getElementById('background-music');
-        if (!musicPlaying && backgroundMusic.paused) {
+        if (backgroundMusic && !musicPlaying && backgroundMusic.paused) {
             // Try to enable autoplay after user interaction
             backgroundMusic.play().then(() => {
                 const musicToggle = document.getElementById('music-toggle');
-                musicToggle.innerHTML = '<i class="fas fa-volume-up"></i>';
-                musicToggle.style.opacity = '1';
-                musicPlaying = true;
+                if (musicToggle) {
+                    musicToggle.innerHTML = '<i class="fas fa-volume-up"></i>';
+                    musicToggle.style.opacity = '1';
+                    musicPlaying = true;
+                }
             }).catch(() => {
                 // Music autoplay still blocked
+                console.log('Autoplay still blocked');
             });
         }
     }, { once: true });
 
     // Handle mobile touch interactions
     if ('ontouchstart' in window) {
-        const touchElements = document.querySelectorAll('.lotus-petals, .om-symbol, .animated-lotus');
+        const touchElements = document.querySelectorAll('.lotus-petals, .om-symbol, .rangoli-container');
         touchElements.forEach(element => {
             element.addEventListener('touchstart', () => {
                 element.style.transform = 'scale(1.05)';
@@ -337,14 +316,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function initializeAccessibilityFeatures() {
         // Keyboard navigation for custom elements
-        const interactiveElements = document.querySelectorAll('.control-btn, .map-link, .animated-lotus');
+        const interactiveElements = document.querySelectorAll('.control-btn, .map-link, .rangoli-container');
 
         interactiveElements.forEach(element => {
             element.addEventListener('keydown', (e) => {
                 if (e.key === 'Enter' || e.key === ' ') {
                     e.preventDefault();
-                    if (element.classList.contains('animated-lotus')) {
-                        // Trigger lotus interaction
+                    if (element.classList.contains('rangoli-container')) {
+                        // Trigger rangoli interaction
                         element.dispatchEvent(new Event('mouseenter'));
                         setTimeout(() => {
                             element.dispatchEvent(new Event('mouseleave'));
@@ -367,13 +346,13 @@ document.addEventListener('DOMContentLoaded', function() {
             lotus.setAttribute('aria-label', `Decorative lotus flower ${index + 1}`);
         });
 
-        const lotusAnimation = document.querySelector('.animated-lotus');
-        if (lotusAnimation) {
-            lotusAnimation.setAttribute('aria-label', 'Beautiful lotus opening animation with Om symbol - Sacred Hindu symbol for prosperity');
-            lotusAnimation.setAttribute('tabindex', '0');
+        const rangoliAnimation = document.querySelector('.rangoli-container');
+        if (rangoliAnimation) {
+            rangoliAnimation.setAttribute('aria-label', 'Beautiful rangoli pattern animation with Om symbol - Sacred Hindu design for prosperity');
+            rangoliAnimation.setAttribute('tabindex', '0');
         }
     }
 
     console.log('🏠 Griha Pravesh Invitation Loaded Successfully! ✨');
-    console.log('🌸 Beautiful lotus-om animation ready! 🕉️');
+    console.log('🌺 Beautiful rangoli-om animation ready! 🕉️');
 });
