@@ -1,4 +1,4 @@
-# Update CSS with rangoli animation and proper footer centering
+# Update CSS to style the poetry beautifully
 css_content = ''':root {
   /* Theme Colors Based on Pink Architectural Design */
   --primary-pink: #E91E63;
@@ -386,17 +386,58 @@ body {
   align-items: center;
 }
 
-.significance-text h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: 2.2rem;
-  color: var(--primary-pink);
-  margin-bottom: 1.5rem;
+/* ===== BEAUTIFUL HOME POETRY ===== */
+.home-poetry {
+  text-align: left;
 }
 
-.significance-text p {
+.home-poetry p {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.15rem;
+  line-height: 1.8;
+  color: var(--dark-text);
   margin-bottom: 1.5rem;
-  font-size: 1.05rem;
-  line-height: 1.7;
+  font-style: italic;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  opacity: 0.9;
+  position: relative;
+}
+
+.home-poetry p:first-child {
+  color: var(--primary-pink);
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+
+.home-poetry p:last-child {
+  margin-bottom: 0;
+  color: var(--deep-pink);
+  font-weight: 600;
+}
+
+.home-poetry p::before {
+  content: '"';
+  position: absolute;
+  left: -0.5rem;
+  top: -0.2rem;
+  font-size: 2rem;
+  color: var(--light-pink);
+  opacity: 0.5;
+  font-family: 'Playfair Display', serif;
+}
+
+.home-poetry p:first-child::before {
+  color: var(--primary-pink);
+  opacity: 0.7;
+}
+
+.home-poetry p:last-child::after {
+  content: '"';
+  margin-left: 0.2rem;
+  font-size: 2rem;
+  color: var(--deep-pink);
+  opacity: 0.7;
+  font-family: 'Playfair Display', serif;
 }
 
 .significance-visual {
@@ -802,6 +843,12 @@ body {
     gap: 2rem;
   }
   
+  .home-poetry p {
+    font-size: 1rem;
+    line-height: 1.6;
+    text-align: center;
+  }
+  
   .share-buttons {
     justify-content: center;
   }
@@ -844,6 +891,10 @@ body {
   
   .ceremony-title {
     font-size: 2.5rem;
+  }
+  
+  .home-poetry p {
+    font-size: 0.95rem;
   }
   
   .rangoli-container {
@@ -903,6 +954,10 @@ body {
     background: var(--primary-pink);
     border: 2px solid var(--dark-text);
   }
+  
+  .home-poetry p {
+    text-shadow: none;
+  }
 }
 
 /* Focus indicators for keyboard navigation */
@@ -918,12 +973,12 @@ with open('style.css', 'w', encoding='utf-8') as f:
     f.write(css_content)
 
 print("✅ Updated style.css:")
-print("1. ✅ Removed language toggle styling")
-print("2. ✅ Created beautiful rangoli bloom animation")
-print("3. ✅ Perfect footer centering with flexbox")
-print("4. ✅ Rangoli patterns with pink-gold gradient")
-print("5. ✅ Sequential blooming animation (4s loop)")
-print("6. ✅ Golden Om symbol appears after patterns")
-print("7. ✅ Particle glow effect with rotation")
-print("8. ✅ Mobile responsive rangoli design")
-print("9. ✅ Accessibility support (reduced motion)")
+print("1. ✅ Beautiful poetry styling with Playfair Display font")
+print("2. ✅ Elegant italics and proper line spacing")
+print("3. ✅ Color gradient from primary-pink to deep-pink")
+print("4. ✅ Decorative quotation marks on first and last stanza")
+print("5. ✅ First stanza highlighted in primary pink")
+print("6. ✅ Last stanza emphasized in deep pink")
+print("7. ✅ Mobile responsive poetry layout")
+print("8. ✅ Subtle text shadows and opacity for elegance")
+print("9. ✅ Left-aligned on desktop, centered on mobile")

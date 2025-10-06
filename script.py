@@ -1,4 +1,4 @@
-# Update HTML file with all requested changes
+# Update HTML file with the beautiful poetry in the significance section
 html_content = '''<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -137,9 +137,18 @@ html_content = '''<!DOCTYPE html>
             <div class="container">
                 <div class="significance-content">
                     <div class="significance-text">
-                        <h2>About Griha Pravesh</h2>
-                        <p>Griha Pravesh is a sacred Hindu ceremony performed when entering a new home for the first time. This auspicious ritual involves prayers for prosperity, peace, and positive energy in the new dwelling.</p>
-                        <p>The ceremony includes invoking Lord Ganesha to remove obstacles, performing Vastu Shanti for harmonizing the space with natural elements, and seeking blessings from elders and deities for a happy and prosperous life in the new home.</p>
+                        <div class="home-poetry">
+                            <p>A house is built with beams and brickwork, but a home is built with dreams and joys,<br>
+                            And now, our cherished dream begins, to fill our new space with love and new noise.</p>
+                            
+                            <p>With blessings from above, and joy in our hearts so true,<br>
+                            We invite you to our humble abode, to bless our new home and see it through.</p>
+                            
+                            <p>Join us for this sacred rite, to share in our happiness, and make this moment shine.<br>
+                            We eagerly await your presence, for a home without loved ones is just an empty space,</p>
+                            
+                            <p>Come fill our new abode with cheer, and make our new journey a joyful embrace.</p>
+                        </div>
                     </div>
                     
                     <div class="significance-visual">
@@ -222,11 +231,9 @@ with open('index.html', 'w', encoding='utf-8') as f:
     f.write(html_content)
 
 print("✅ Updated index.html:")
-print("1. ✅ Removed language toggle button (Hindi functionality)")
-print("2. ✅ Added Hindi fullstop (।) after Hindi blessing")
-print("3. ✅ Added exclamation (!) after English blessing")
-print("4. ✅ Added fullstop (.) after 'made with ❤️' line")
-print("5. ✅ Replaced lotus animation with rangoli animation")
-print("6. ✅ Updated audio file path to 'background-music.mp3'")
-print("7. ✅ Added preload='auto' for better audio loading")
-print("8. ✅ Proper footer structure with centered content")
+print("1. ✅ Removed 'About Griha Pravesh' heading")
+print("2. ✅ Added beautiful home poetry in 4 stanzas")
+print("3. ✅ Formatted as elegant poetry with line breaks")
+print("4. ✅ Replaced factual content with personal, heartfelt verses")
+print("5. ✅ Maintained rangoli animation on the right side")
+print("6. ✅ Poetry flows beautifully with rhythm and rhyme")

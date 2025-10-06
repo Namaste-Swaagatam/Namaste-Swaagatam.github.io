@@ -385,17 +385,58 @@ body {
   align-items: center;
 }
 
-.significance-text h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: 2.2rem;
-  color: var(--primary-pink);
-  margin-bottom: 1.5rem;
+/* ===== BEAUTIFUL HOME POETRY ===== */
+.home-poetry {
+  text-align: left;
 }
 
-.significance-text p {
+.home-poetry p {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.15rem;
+  line-height: 1.8;
+  color: var(--dark-text);
   margin-bottom: 1.5rem;
-  font-size: 1.05rem;
-  line-height: 1.7;
+  font-style: italic;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  opacity: 0.9;
+  position: relative;
+}
+
+.home-poetry p:first-child {
+  color: var(--primary-pink);
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+
+.home-poetry p:last-child {
+  margin-bottom: 0;
+  color: var(--deep-pink);
+  font-weight: 600;
+}
+
+.home-poetry p::before {
+  content: '"';
+  position: absolute;
+  left: -0.5rem;
+  top: -0.2rem;
+  font-size: 2rem;
+  color: var(--light-pink);
+  opacity: 0.5;
+  font-family: 'Playfair Display', serif;
+}
+
+.home-poetry p:first-child::before {
+  color: var(--primary-pink);
+  opacity: 0.7;
+}
+
+.home-poetry p:last-child::after {
+  content: '"';
+  margin-left: 0.2rem;
+  font-size: 2rem;
+  color: var(--deep-pink);
+  opacity: 0.7;
+  font-family: 'Playfair Display', serif;
 }
 
 .significance-visual {
@@ -801,6 +842,12 @@ body {
     gap: 2rem;
   }
 
+  .home-poetry p {
+    font-size: 1rem;
+    line-height: 1.6;
+    text-align: center;
+  }
+
   .share-buttons {
     justify-content: center;
   }
@@ -843,6 +890,10 @@ body {
 
   .ceremony-title {
     font-size: 2.5rem;
+  }
+
+  .home-poetry p {
+    font-size: 0.95rem;
   }
 
   .rangoli-container {
@@ -901,6 +952,10 @@ body {
   .rangoli-pattern {
     background: var(--primary-pink);
     border: 2px solid var(--dark-text);
+  }
+
+  .home-poetry p {
+    text-shadow: none;
   }
 }
 
