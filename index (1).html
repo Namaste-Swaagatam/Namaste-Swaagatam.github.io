@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Graha Pravesh Ceremony - Digital Invitation</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600;700&family=Noto+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loading-screen" class="loading-screen">
+        <div class="loading-content">
+            <div class="loading-kalash">🏺</div>
+            <div class="loading-text">आपका स्वागत है</div>
+            <div class="loading-dots">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Background Elements -->
+    <div class="bg-elements">
+        <div class="floating-petals">
+            <span class="petal">🌸</span>
+            <span class="petal">🌺</span>
+            <span class="petal">🌼</span>
+            <span class="petal">🌹</span>
+            <span class="petal">🌻</span>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="nav-menu" id="nav-menu">
+                <a href="#hero" class="nav-link">Home</a>
+                <a href="#details" class="nav-link">Details</a>
+                <a href="#rituals" class="nav-link">Rituals</a>
+                <a href="#rsvp" class="nav-link">RSVP</a>
+            </div>
+            <div class="nav-controls">
+                <button class="lang-toggle" id="lang-toggle" aria-label="Toggle language">
+                    <span class="lang-text">हिं</span>
+                </button>
+                <button class="music-toggle" id="music-toggle" aria-label="Toggle music">
+                    🎵
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero">
+        <div class="hero-bg">
+            <div class="diya-container">
+                <div class="diya" data-lit="false">
+                    <div class="diya-base"></div>
+                    <div class="diya-flame"></div>
+                </div>
+                <div class="diya" data-lit="false">
+                    <div class="diya-base"></div>
+                    <div class="diya-flame"></div>
+                </div>
+                <div class="diya" data-lit="false">
+                    <div class="diya-base"></div>
+                    <div class="diya-flame"></div>
+                </div>
+                <div class="diya" data-lit="false">
+                    <div class="diya-base"></div>
+                    <div class="diya-flame"></div>
+                </div>
+                <div class="diya" data-lit="false">
+                    <div class="diya-base"></div>
+                    <div class="diya-flame"></div>
+                </div>
+            </div>
+        </div>
+        <div class="hero-content">
+            <div class="sanskrit-blessing" data-en="॥ श्री गणेशाय नमः ॥" data-hi="॥ श्री गणेशाय नमः ॥">
+                ॥ श्री गणेशाय नमः ॥
+            </div>
+            <h1 class="hero-title" data-en="Graha Pravesh Ceremony" data-hi="नव गृह प्रवेश">
+                Graha Pravesh Ceremony
+            </h1>
+            <p class="hero-subtitle" data-en="Welcome to our new home" data-hi="हमारे नए घर में आपका स्वागत है">
+                Welcome to our new home
+            </p>
+            <div class="hero-kalash">
+                <div class="kalash" id="main-kalash">
+                    <div class="kalash-body"></div>
+                    <div class="kalash-neck"></div>
+                    <div class="kalash-coconut"></div>
+                    <div class="kalash-leaves">🌿🌿🌿</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Event Details Section -->
+    <section id="details" class="details section">
+        <div class="container">
+            <h2 class="section-title" data-en="Event Details" data-hi="कार्यक्रम विवरण">Event Details</h2>
+            <div class="details-grid">
+                <div class="detail-card">
+                    <div class="detail-icon">📅</div>
+                    <h3 data-en="Date" data-hi="दिनांक">Date</h3>
+                    <p>Sunday, November 10th, 2024</p>
+                </div>
+                <div class="detail-card">
+                    <div class="detail-icon">🕘</div>
+                    <h3 data-en="Time" data-hi="समय">Time</h3>
+                    <p>10:00 AM - 2:00 PM</p>
+                </div>
+                <div class="detail-card">
+                    <div class="detail-icon">📍</div>
+                    <h3 data-en="Venue" data-hi="स्थान">Venue</h3>
+                    <p>123 Harmony Lane, Peaceful Gardens</p>
+                    <p>Bangalore - 560001</p>
+                    <small>Near Temple Gardens, Opposite Lotus Park</small>
+                </div>
+                <div class="detail-card">
+                    <div class="detail-icon">👨‍👩‍👧‍👦</div>
+                    <h3 data-en="Hosts" data-hi="आयोजक">Hosts</h3>
+                    <p>The Sharma Family</p>
+                    <p class="contact">📞 +91-9876543210</p>
+                </div>
+            </div>
+            
+            <div class="special-notes">
+                <h3 data-en="Special Notes" data-hi="विशेष सूचना">Special Notes</h3>
+                <ul>
+                    <li data-en="Please join us for this auspicious occasion" data-hi="इस शुभ अवसर पर हमारे साथ जुड़ें">Please join us for this auspicious occasion</li>
+                    <li data-en="Lunch will be served to all guests" data-hi="सभी अतिथियों के लिए भोजन की व्यवस्था है">Lunch will be served to all guests</li>
+                    <li data-en="Traditional Indian attire preferred" data-hi="पारंपरिक भारतीय पोशाक पसंदीदा">Traditional Indian attire preferred</li>
+                    <li data-en="Parking available on premises" data-hi="परिसर में पार्किंग उपलब्ध">Parking available on premises</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rituals Timeline Section -->
+    <section id="rituals" class="rituals section">
+        <div class="container">
+            <h2 class="section-title" data-en="Ceremony Timeline" data-hi="पूजा कार्यक्रम">Ceremony Timeline</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-time">10:00 AM</div>
+                    <div class="timeline-content">
+                        <h3 data-en="Ganesha Puja & Kalash Sthapana" data-hi="गणेश पूजा एवं कलश स्थापना">Ganesha Puja & Kalash Sthapana</h3>
+                        <p data-en="Invoking Lord Ganesha for removing obstacles" data-hi="विघ्न हरण के लिए गणेश जी का आह्वान">Invoking Lord Ganesha for removing obstacles</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-time">11:00 AM</div>
+                    <div class="timeline-content">
+                        <h3 data-en="Vastu Shanti Puja" data-hi="वास्तु शांति पूजा">Vastu Shanti Puja</h3>
+                        <p data-en="Purification and blessing of the new home" data-hi="नए घर की शुद्धता एवं आशीर्वाद">Purification and blessing of the new home</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-time">12:00 PM</div>
+                    <div class="timeline-content">
+                        <h3 data-en="Graha Pravesh Ceremony" data-hi="गृह प्रवेश समारोह">Graha Pravesh Ceremony</h3>
+                        <p data-en="First entry into the new home with family" data-hi="परिवार के साथ नए घर में प्रथम प्रवेश">First entry into the new home with family</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-time">1:00 PM</div>
+                    <div class="timeline-content">
+                        <h3 data-en="Prasadam & Community Lunch" data-hi="प्रसादम् एवं सामुदायिक भोज">Prasadam & Community Lunch</h3>
+                        <p data-en="Blessed food sharing with all guests" data-hi="सभी अतिथियों के साथ प्रसाद वितरण">Blessed food sharing with all guests</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cultural Information Section -->
+    <section id="culture" class="culture section">
+        <div class="container">
+            <h2 class="section-title" data-en="About Graha Pravesh" data-hi="गृह प्रवेश के बारे में">About Graha Pravesh</h2>
+            <div class="culture-content">
+                <div class="culture-text">
+                    <p data-en="Graha Pravesh is a sacred Hindu ceremony performed when moving into a new home. It involves prayers for prosperity, peace, and positive energy in the new dwelling." data-hi="गृह प्रवेश एक पवित्र हिंदू संस्कार है जो नए घर में जाते समय किया जाता है। इसमें समृद्धि, शांति और सकारात्मक ऊर्जा के लिए प्रार्थना की जाती है।">
+                        Graha Pravesh is a sacred Hindu ceremony performed when moving into a new home. It involves prayers for prosperity, peace, and positive energy in the new dwelling.
+                    </p>
+                    <div class="significance-points">
+                        <h3 data-en="Significance" data-hi="महत्व">Significance</h3>
+                        <ul>
+                            <li data-en="Purification of the new dwelling" data-hi="नए घर की शुद्धता">Purification of the new dwelling</li>
+                            <li data-en="Inviting positive energies" data-hi="सकारात्मक ऊर्जा का आह्वान">Inviting positive energies</li>
+                            <li data-en="Seeking blessings for prosperity" data-hi="समृद्धि के लिए आशीर्वाद">Seeking blessings for prosperity</li>
+                            <li data-en="Protection from negative influences" data-hi="नकारात्मक प्रभावों से सुरक्षा">Protection from negative influences</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="culture-visual">
+                    <div class="rangoli-pattern">
+                        <div class="rangoli-center"></div>
+                        <div class="rangoli-petals">
+                            <div class="petal"></div>
+                            <div class="petal"></div>
+                            <div class="petal"></div>
+                            <div class="petal"></div>
+                            <div class="petal"></div>
+                            <div class="petal"></div>
+                            <div class="petal"></div>
+                            <div class="petal"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- RSVP Section -->
+    <section id="rsvp" class="rsvp section">
+        <div class="container">
+            <h2 class="section-title" data-en="Please Confirm Your Presence" data-hi="कृपया अपनी उपस्थिति की पुष्टि करें">Please Confirm Your Presence</h2>
+            <form class="rsvp-form" id="rsvp-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label" for="guest-name" data-en="Your Name" data-hi="आपका नाम">Your Name</label>
+                        <input type="text" id="guest-name" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="guest-phone" data-en="Phone Number" data-hi="फोन नंबर">Phone Number</label>
+                        <input type="tel" id="guest-phone" class="form-control" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label" for="guest-count" data-en="Number of Attendees" data-hi="उपस्थित लोगों की संख्या">Number of Attendees</label>
+                        <select id="guest-count" class="form-control" required>
+                            <option value="">Select</option>
+                            <option value="1">1 Person</option>
+                            <option value="2">2 People</option>
+                            <option value="3">3 People</option>
+                            <option value="4">4 People</option>
+                            <option value="5+">5+ People</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="dietary-pref" data-en="Dietary Preferences" data-hi="भोजन वरीयता">Dietary Preferences</label>
+                        <select id="dietary-pref" class="form-control">
+                            <option value="vegetarian">Vegetarian</option>
+                            <option value="vegan">Vegan</option>
+                            <option value="jain">Jain</option>
+                            <option value="no-preference">No Preference</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="guest-message" data-en="Message (Optional)" data-hi="संदेश (वैकल्पिक)">Message (Optional)</label>
+                    <textarea id="guest-message" class="form-control" rows="3" placeholder="Your blessings and wishes..."></textarea>
+                </div>
+                <button type="submit" class="btn btn--primary btn--full-width" data-en="Confirm Attendance" data-hi="उपस्थिति की पुष्टि करें">
+                    Confirm Attendance
+                </button>
+            </form>
+            <div class="rsvp-success hidden" id="rsvp-success">
+                <div class="success-icon">✅</div>
+                <h3 data-en="Thank You!" data-hi="धन्यवाद!">Thank You!</h3>
+                <p data-en="Your response has been recorded. We look forward to celebrating with you!" data-hi="आपका उत्तर दर्ज कर लिया गया है। हम आपके साथ जश्न मनाने के लिए उत्सुक हैं!">
+                    Your response has been recorded. We look forward to celebrating with you!
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-blessing" data-en="May this new home be filled with joy, prosperity, and love" data-hi="यह नया घर खुशी, समृद्धि और प्रेम से भरा हो">
+                    May this new home be filled with joy, prosperity, and love
+                </div>
+                <div class="footer-signature">
+                    <p data-en="With warm regards," data-hi="सादर,">With warm regards,</p>
+                    <p class="family-name">The Sharma Family</p>
+                </div>
+                <div class="share-buttons">
+                    <button class="share-btn" data-share="whatsapp" aria-label="Share on WhatsApp">📱</button>
+                    <button class="share-btn" data-share="copy" aria-label="Copy link">🔗</button>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Audio Element for Background Music -->
+    <audio id="bg-music" loop preload="none">
+        <source src="data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBhYqFbF1fdJivrJBhNjVgodDbq2EcBj+a2/LDciUFLIHO8tiJNwgZaLvt559NEAxQp+PwtmMcBjiR1/LMeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmMcCj2Z3/HOfyMFIHHE8NmSQAoVY7zg6rJcHQc+jdnyy3oqBSF+z/DWizoEFGG37u+nUQATSKji9LFhGwk2jdXT0H8dBF29zu+yZSkFG3DN9NV5JwUff8/t3I4+CRNdvOftyX8kBAFz1A==" type="audio/wav">
+    </audio>
+
+    <script src="app.js"></script>
+</body>
+</html>
