@@ -176,18 +176,16 @@ document.addEventListener('DOMContentLoaded', function() {
             en: {
                 'invitation-text': 'Inviting Your Gracious Presence On<br>The Occasion Of <strong>Our New Home!</strong>',
                 'ceremony-title': 'GRIHA<br>PRAVESH',
-                'section-timeline': 'Ceremony Timeline',
                 'about-title': 'About Griha Pravesh',
-                'confirmation-title': 'Please Confirm Your Presence',
+                'confirmation-title': 'Please Confirm Your Presence!',
                 'share-title': 'Share all your memorable clicks here!',
                 'lang-text': 'हिं'
             },
             hi: {
                 'invitation-text': 'हमारे <strong>नए घर</strong> के<br>गृह प्रवेश समारोह में<br>आपकी उपस्थिति का सम्मान',
                 'ceremony-title': 'गृह<br>प्रवेश',
-                'section-timeline': 'समारोह कार्यक्रम',
                 'about-title': 'गृह प्रवेश के बारे में',
-                'confirmation-title': 'कृपया अपनी उपस्थिति की पुष्टि करें',
+                'confirmation-title': 'कृपया अपनी उपस्थिति की पुष्टि करें!',
                 'share-title': 'अपने यादगार पलों को यहाँ साझा करें!',
                 'lang-text': 'EN'
             }
@@ -196,7 +194,6 @@ document.addEventListener('DOMContentLoaded', function() {
         const elements = {
             'invitation-text': document.querySelector('.invitation-text'),
             'ceremony-title': document.querySelector('.ceremony-title'),
-            'section-timeline': document.querySelector('.section-title'),
             'about-title': document.querySelector('.significance-text h2'),
             'confirmation-title': document.querySelector('.confirmation-header h2'),
             'share-title': document.querySelector('.share-section h2'),
@@ -225,22 +222,13 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         }, observerOptions);
 
-        // Observe sections for scroll animations
-        const sections = document.querySelectorAll('.ceremony-details, .significance-section, .confirmation-section, .share-section');
+        // Observe sections for scroll animations (removed timeline)
+        const sections = document.querySelectorAll('.significance-section, .confirmation-section, .share-section');
         sections.forEach(section => {
             section.style.opacity = '0';
             section.style.transform = 'translateY(30px)';
             section.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
             observer.observe(section);
-        });
-
-        // Observe timeline items
-        const timelineItems = document.querySelectorAll('.timeline-item');
-        timelineItems.forEach((item, index) => {
-            item.style.opacity = '0';
-            item.style.transform = 'translateX(-30px)';
-            item.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
-            observer.observe(item);
         });
     }
 

@@ -1,4 +1,4 @@
-# Create updated CSS with compact map button styling
+# Create updated CSS with centered map button and trimmed styling
 css_content = ''':root {
   /* Theme Colors Based on Pink Architectural Design */
   --primary-pink: #E91E63;
@@ -317,6 +317,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+  align-items: center;
 }
 
 .detail-item {
@@ -339,10 +340,18 @@ body {
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
-/* ===== COMPACT MAP LINK ===== */
+/* ===== CENTERED MAP LINK ===== */
+.map-link-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 1rem;
+}
+
 .map-link {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 0.5rem;
   background: var(--gold);
   color: var(--dark-text);
@@ -351,15 +360,15 @@ body {
   text-decoration: none;
   font-weight: 600;
   font-size: 0.9rem;
-  margin-top: 1rem;
   transition: all 0.3s ease;
   box-shadow: 0 2px 8px rgba(255, 215, 0, 0.3);
+  /* Trim the button to fit content only */
+  width: auto;
+  min-width: auto;
 }
 
-.map-link.compact {
-  padding: 8px 16px;
-  font-size: 0.9rem;
-  border-radius: 20px;
+.map-link.centered {
+  margin: 0;
 }
 
 .map-link:hover {
@@ -370,72 +379,6 @@ body {
 
 .map-link i {
   font-size: 1rem;
-}
-
-/* ===== CEREMONY DETAILS SECTION ===== */
-.ceremony-details {
-  padding: var(--section-padding);
-  background: var(--white);
-}
-
-.section-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 2.5rem;
-  text-align: center;
-  margin-bottom: 3rem;
-  color: var(--primary-pink);
-  position: relative;
-}
-
-.section-title::after {
-  content: '';
-  position: absolute;
-  bottom: -10px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 80px;
-  height: 3px;
-  background: var(--arch-gradient);
-  border-radius: 2px;
-}
-
-.timeline {
-  display: grid;
-  gap: 2rem;
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-.timeline-item {
-  display: grid;
-  grid-template-columns: 120px 1fr;
-  gap: 2rem;
-  padding: 1.5rem;
-  background: var(--light-gray);
-  border-radius: var(--border-radius);
-  border-left: 4px solid var(--primary-pink);
-  transition: transform 0.3s ease;
-}
-
-.timeline-item:hover {
-  transform: translateX(5px);
-}
-
-.timeline-time {
-  font-weight: 600;
-  color: var(--primary-pink);
-  font-size: 1.1rem;
-}
-
-.timeline-content h3 {
-  color: var(--dark-text);
-  margin-bottom: 0.5rem;
-  font-size: 1.2rem;
-}
-
-.timeline-content p {
-  color: var(--dark-text);
-  opacity: 0.8;
 }
 
 /* ===== SIGNIFICANCE SECTION ===== */
@@ -514,17 +457,15 @@ body {
   font-family: 'Playfair Display', serif;
   font-size: 2.5rem;
   color: var(--primary-pink);
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
 }
 
 .confirmation-content p {
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   color: var(--dark-text);
-  opacity: 0.8;
-  margin-bottom: 1rem;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
+  line-height: 1.7;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 /* ===== SHARE SECTION ===== */
@@ -546,6 +487,10 @@ body {
   gap: 1rem;
   justify-content: center;
   flex-wrap: wrap;
+}
+
+.share-buttons.centered {
+  justify-content: center;
 }
 
 .share-btn {
@@ -602,6 +547,15 @@ body {
   box-shadow: 0 6px 20px rgba(66, 103, 178, 0.4);
 }
 
+.share-btn.google-drive {
+  background: #4285F4;
+  box-shadow: 0 4px 12px rgba(66, 133, 244, 0.3);
+}
+
+.share-btn.google-drive:hover {
+  box-shadow: 0 6px 20px rgba(66, 133, 244, 0.4);
+}
+
 /* ===== FOOTER ===== */
 .footer {
   background: var(--dark-text);
@@ -614,6 +568,11 @@ body {
   grid-template-columns: 1fr 1fr;
   gap: 3rem;
   margin-bottom: 2rem;
+  align-items: center;
+}
+
+.footer-content.centered-vertical {
+  align-items: center;
 }
 
 .footer-blessing {
@@ -638,6 +597,9 @@ body {
 
 .footer-contact {
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .footer-contact p {
@@ -808,15 +770,6 @@ body {
     font-size: 2.8rem;
   }
   
-  .section-title {
-    font-size: 2rem;
-  }
-  
-  .timeline-item {
-    grid-template-columns: 1fr;
-    text-align: center;
-  }
-  
   .significance-content {
     grid-template-columns: 1fr;
     gap: 2rem;
@@ -895,7 +848,9 @@ with open('style.css', 'w', encoding='utf-8') as f:
     f.write(css_content)
 
 print("✅ Updated style.css with:")
-print("- Compact map button styling (smaller padding, centered text)")
-print("- Removed RSVP form styles")
+print("- Centered and trimmed 'Find my home' button")
+print("- Google Drive button styling")
+print("- Centered share buttons")
+print("- Vertically centered footer contact section")
+print("- Removed timeline section styling")
 print("- Updated confirmation section styling")
-print("- Streamlined share section without subtitle")

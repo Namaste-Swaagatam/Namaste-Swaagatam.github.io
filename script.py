@@ -123,46 +123,11 @@ html_content = '''<!DOCTYPE html>
                             <span class="detail-text">+91 8237886137</span>
                         </div>
                         
-                        <a href="https://maps.app.goo.gl/w9DeHLFnaat1LC4N6" target="_blank" class="map-link compact">
-                            <i class="fas fa-location-dot"></i>
-                            Find my home
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Ceremony Details Section -->
-        <section class="ceremony-details">
-            <div class="container">
-                <h2 class="section-title">शुभ विवाह - Ceremony Timeline</h2>
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <div class="timeline-time">8:00 PM</div>
-                        <div class="timeline-content">
-                            <h3>Ganesha Puja & Welcome</h3>
-                            <p>Invoking Lord Ganesha's blessings for the new home</p>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-time">8:30 PM</div>
-                        <div class="timeline-content">
-                            <h3>Kalash Sthapana</h3>
-                            <p>Sacred pot ceremony for prosperity and abundance</p>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-time">9:00 PM</div>
-                        <div class="timeline-content">
-                            <h3>Griha Pravesh Ceremony</h3>
-                            <p>First sacred entry into the new home with family</p>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-time">9:30 PM</div>
-                        <div class="timeline-content">
-                            <h3>Dinner & Celebrations</h3>
-                            <p>Community feast and joyful celebrations with all guests</p>
+                        <div class="map-link-container">
+                            <a href="https://maps.app.goo.gl/w9DeHLFnaat1LC4N6" target="_blank" class="map-link centered">
+                                <i class="fas fa-location-dot"></i>
+                                Find my home
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -197,12 +162,11 @@ html_content = '''<!DOCTYPE html>
         <section class="confirmation-section">
             <div class="container">
                 <div class="confirmation-header">
-                    <h2>Please Confirm Your Presence</h2>
+                    <h2>Please Confirm Your Presence!</h2>
                 </div>
                 
                 <div class="confirmation-content">
-                    <p>Your presence will make our celebration complete!</p>
-                    <p>Please let us know if you will be joining us for this auspicious occasion.</p>
+                    <p>New home, new beginnings! We are delighted to invite you to our Griha Pravesh ceremony at our new home. Come celebrate with us and make it feel like home with your love and good wishes.</p>
                 </div>
             </div>
         </section>
@@ -212,7 +176,7 @@ html_content = '''<!DOCTYPE html>
             <div class="container">
                 <h2>Share all your memorable clicks here!</h2>
                 
-                <div class="share-buttons">
+                <div class="share-buttons centered">
                     <button class="share-btn whatsapp" onclick="shareInvitation('whatsapp')">
                         <i class="fab fa-whatsapp"></i>
                         WhatsApp
@@ -229,6 +193,10 @@ html_content = '''<!DOCTYPE html>
                         <i class="fab fa-facebook"></i>
                         Facebook
                     </button>
+                    <a href="https://drive.google.com/drive/folders/1C4bmnKDAwhjiLDHHANP-gBfIm4wXzhnZ?usp=sharing" target="_blank" class="share-btn google-drive">
+                        <i class="fab fa-google-drive"></i>
+                        Google Drive
+                    </a>
                 </div>
             </div>
         </section>
@@ -236,7 +204,7 @@ html_content = '''<!DOCTYPE html>
         <!-- Footer -->
         <footer class="footer">
             <div class="container">
-                <div class="footer-content">
+                <div class="footer-content centered-vertical">
                     <div class="footer-blessing">
                         <div class="om-small">ॐ</div>
                         <p>भगवान इस घर में खुशियों की बरसात करें</p>
@@ -265,16 +233,11 @@ with open('index.html', 'w', encoding='utf-8') as f:
     f.write(html_content)
 
 print("✅ Updated index.html with all requested changes:")
-print("1. ✅ 'Inviting your gracious presence On the occasion of Our New Home!' (with bold)")
-print("2. ✅ Date changed to 'Sunday, 26th October, 2025'")
-print("3. ✅ Address updated to Sattva Bliss, Budigere Road address")
-print("4. ✅ Phone number changed to +91 8237886137")
-print("5. ✅ Map button text changed to 'Find my home' (compact)")
-print("6. ✅ Dress code component removed")
-print("7. ✅ Changed 'attendance' to 'presence'")
-print("8. ✅ RSVP form component removed")
-print("9. ✅ Share section title changed to 'Share all your memorable clicks here!'")
-print("10. ✅ Subtitle removed from share section")
-print("11. ✅ Email link removed from footer")
-print("12. ✅ Blessing changed to 'भगवान इस घर में खुशियों की बरसात करें' with English translation")
-print("13. ✅ Footer contact simplified, year changed to 2025")
+print("1. ✅ Timeline section completely removed")
+print("2. ✅ Added '!' after 'Please Confirm Your Presence!'")
+print("3. ✅ Removed 'Please let us know...' sentence")
+print("4. ✅ Updated confirmation text to new message about new beginnings")
+print("5. ✅ Added Google Drive icon with your link in share section")
+print("6. ✅ Centered share buttons")
+print("7. ✅ Made footer contact section vertically centered")
+print("8. ✅ Made 'Find my home' button centered and compact")
