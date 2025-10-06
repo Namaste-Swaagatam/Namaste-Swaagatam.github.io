@@ -1,4 +1,5 @@
-:root {
+# Create the complete CSS file for the pink architectural theme
+css_content = ''':root {
   /* Theme Colors Based on Pink Architectural Design */
   --primary-pink: #E91E63;
   --deep-pink: #D81B60;
@@ -12,12 +13,12 @@
   --light-gray: #F5F5F5;
   --shadow: rgba(0, 0, 0, 0.2);
   --pink-shadow: rgba(233, 30, 99, 0.3);
-
+  
   /* Gradients */
   --arch-gradient: linear-gradient(135deg, var(--primary-pink) 0%, var(--deep-pink) 100%);
   --lotus-gradient: radial-gradient(circle, var(--light-pink) 0%, var(--primary-pink) 100%);
   --green-gradient: linear-gradient(45deg, var(--accent-green) 0%, var(--dark-green) 100%);
-
+  
   /* Spacing */
   --container-max-width: 1200px;
   --section-padding: 4rem 0;
@@ -204,7 +205,7 @@ body {
     0 20px 40px var(--pink-shadow),
     inset 0 2px 0 rgba(255, 255, 255, 0.1);
   z-index: 2;
-
+  
   /* Scalloped edges effect */
   background-image: 
     radial-gradient(circle at 25% 0%, transparent 20px, var(--primary-pink) 21px),
@@ -886,82 +887,82 @@ body {
   .container {
     padding: 0 1rem;
   }
-
+  
   .floating-controls {
     top: 1rem;
     right: 1rem;
     gap: 0.5rem;
   }
-
+  
   .control-btn {
     width: 45px;
     height: 45px;
     font-size: 1rem;
   }
-
+  
   .arch-container {
     max-width: 350px;
     min-height: 600px;
     padding: 2rem 1.5rem;
   }
-
+  
   .lotus-petals {
     font-size: 3rem;
   }
-
+  
   .left-lotus {
     left: 5%;
   }
-
+  
   .right-lotus {
     right: 5%;
   }
-
+  
   .vine-decoration {
     display: none;
   }
-
+  
   .om-symbol {
     font-size: 2.5rem;
   }
-
+  
   .invitation-text {
     font-size: 1rem;
   }
-
+  
   .ceremony-title {
     font-size: 2.8rem;
   }
-
+  
   .section-title {
     font-size: 2rem;
   }
-
+  
   .timeline-item {
     grid-template-columns: 1fr;
     text-align: center;
   }
-
+  
   .significance-content {
     grid-template-columns: 1fr;
     gap: 2rem;
   }
-
+  
   .form-row {
     grid-template-columns: 1fr;
     gap: 1rem;
   }
-
+  
   .footer-content {
     grid-template-columns: 1fr;
     gap: 2rem;
   }
-
+  
   .share-buttons {
     flex-direction: column;
     align-items: center;
   }
-
+  
   .share-btn {
     width: 200px;
     justify-content: center;
@@ -974,19 +975,19 @@ body {
     min-height: 550px;
     padding: 1.5rem 1rem;
   }
-
+  
   .lotus-petals {
     font-size: 3rem;
   }
-
+  
   .ceremony-title {
     font-size: 2.5rem;
   }
-
+  
   .kalash {
     font-size: 3rem;
   }
-
+  
   .rsvp-form {
     padding: 1.5rem;
   }
@@ -1008,7 +1009,7 @@ body {
   .arch-container {
     border: 2px solid var(--white);
   }
-
+  
   .detail-text,
   .invitation-text {
     text-shadow: none;
@@ -1029,4 +1030,11 @@ body {
 .form-group select:focus,
 .form-group textarea:focus {
   box-shadow: 0 0 0 3px rgba(233, 30, 99, 0.2);
-}
+}'''
+
+# Save the CSS file
+with open('style.css', 'w', encoding='utf-8') as f:
+    f.write(css_content)
+
+print("✅ Created style.css")
+print(f"File size: {len(css_content)} characters")
