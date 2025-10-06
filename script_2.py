@@ -1,4 +1,4 @@
-# Update JavaScript file - remove all functions related to WhatsApp, Email, Copy Link, Facebook
+# Update JavaScript to remove old kalash/diya interactions and optimize for lotus animation
 js_content = '''// Pink Architectural Griha Pravesh Invitation - Interactive Elements
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize the application
@@ -125,19 +125,35 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
         
-        // Initialize diya flicker effects
-        const diyas = document.querySelectorAll('.diya');
-        diyas.forEach((diya, index) => {
-            diya.addEventListener('click', () => {
-                diya.style.animation = 'flicker 0.5s ease';
-                setTimeout(() => {
-                    diya.style.animation = 'flicker 2s ease-in-out infinite alternate';
-                    if (index === 1) {
-                        diya.style.animationDelay = '0.5s';
-                    }
-                }, 500);
+        // Initialize lotus-om animation interaction
+        const lotusAnimation = document.querySelector('.animated-lotus');
+        if (lotusAnimation) {
+            lotusAnimation.addEventListener('mouseenter', () => {
+                // Speed up animation on hover
+                const petals = lotusAnimation.querySelectorAll('.lotus-petal');
+                const omCenter = lotusAnimation.querySelector('.lotus-om-center');
+                const glow = lotusAnimation.querySelector('.lotus-glow');
+                
+                petals.forEach(petal => {
+                    petal.style.animationDuration = '2s';
+                });
+                if (omCenter) omCenter.style.animationDuration = '2s';
+                if (glow) glow.style.animationDuration = '2s';
             });
-        });
+            
+            lotusAnimation.addEventListener('mouseleave', () => {
+                // Reset to normal speed
+                const petals = lotusAnimation.querySelectorAll('.lotus-petal');
+                const omCenter = lotusAnimation.querySelector('.lotus-om-center');
+                const glow = lotusAnimation.querySelector('.lotus-glow');
+                
+                petals.forEach(petal => {
+                    petal.style.animationDuration = '4s';
+                });
+                if (omCenter) omCenter.style.animationDuration = '4s';
+                if (glow) glow.style.animationDuration = '4s';
+            });
+        }
     }
     
     function initializeFloatingControls() {
@@ -218,11 +234,22 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (entry.isIntersecting) {
                     entry.target.style.opacity = '1';
                     entry.target.style.transform = 'translateY(0)';
+                    
+                    // Special handling for lotus animation
+                    if (entry.target.classList.contains('significance-section')) {
+                        const lotusAnimation = entry.target.querySelector('.animated-lotus');
+                        if (lotusAnimation) {
+                            // Slight delay before starting lotus animation
+                            setTimeout(() => {
+                                lotusAnimation.style.visibility = 'visible';
+                            }, 500);
+                        }
+                    }
                 }
             });
         }, observerOptions);
         
-        // Observe sections for scroll animations (removed timeline)
+        // Observe sections for scroll animations
         const sections = document.querySelectorAll('.significance-section, .confirmation-section, .share-section');
         sections.forEach(section => {
             section.style.opacity = '0';
@@ -230,6 +257,12 @@ document.addEventListener('DOMContentLoaded', function() {
             section.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
             observer.observe(section);
         });
+        
+        // Initially hide lotus animation until section is visible
+        const lotusAnimation = document.querySelector('.animated-lotus');
+        if (lotusAnimation) {
+            lotusAnimation.style.visibility = 'hidden';
+        }
     }
     
     function startContinuousAnimations() {
@@ -244,12 +277,6 @@ document.addEventListener('DOMContentLoaded', function() {
         leaves.forEach((leaf, index) => {
             leaf.style.animation = `leafRustle 3s ease-in-out infinite ${index * 0.5}s`;
         });
-        
-        // Continuous kalash float
-        const kalash = document.querySelector('.kalash');
-        if (kalash) {
-            kalash.style.animation = 'float 3s ease-in-out infinite';
-        }
     }
     
     function showNotification(message) {
@@ -294,10 +321,10 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Handle mobile touch interactions
     if ('ontouchstart' in window) {
-        const touchElements = document.querySelectorAll('.lotus-petals, .diya, .om-symbol');
+        const touchElements = document.querySelectorAll('.lotus-petals, .om-symbol, .animated-lotus');
         touchElements.forEach(element => {
             element.addEventListener('touchstart', () => {
-                element.style.transform = 'scale(1.1)';
+                element.style.transform = 'scale(1.05)';
             });
             
             element.addEventListener('touchend', () => {
@@ -310,14 +337,22 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeAccessibilityFeatures();
     
     function initializeAccessibilityFeatures() {
-        // Keyboard navigation for custom elements (removed share-btn from selector)
-        const interactiveElements = document.querySelectorAll('.control-btn, .map-link');
+        // Keyboard navigation for custom elements
+        const interactiveElements = document.querySelectorAll('.control-btn, .map-link, .animated-lotus');
         
         interactiveElements.forEach(element => {
             element.addEventListener('keydown', (e) => {
                 if (e.key === 'Enter' || e.key === ' ') {
                     e.preventDefault();
-                    element.click();
+                    if (element.classList.contains('animated-lotus')) {
+                        // Trigger lotus interaction
+                        element.dispatchEvent(new Event('mouseenter'));
+                        setTimeout(() => {
+                            element.dispatchEvent(new Event('mouseleave'));
+                        }, 2000);
+                    } else {
+                        element.click();
+                    }
                 }
             });
         });
@@ -332,40 +367,46 @@ document.addEventListener('DOMContentLoaded', function() {
         lotusFlowers.forEach((lotus, index) => {
             lotus.setAttribute('aria-label', `Decorative lotus flower ${index + 1}`);
         });
+        
+        const lotusAnimation = document.querySelector('.animated-lotus');
+        if (lotusAnimation) {
+            lotusAnimation.setAttribute('aria-label', 'Beautiful lotus opening animation with Om symbol - Sacred Hindu symbol for prosperity');
+            lotusAnimation.setAttribute('tabindex', '0');
+        }
     }
     
     console.log('🏠 Griha Pravesh Invitation Loaded Successfully! ✨');
-    console.log('🌸 May this new home bring joy and prosperity! 🙏');
+    console.log('🌸 Beautiful lotus-om animation ready! 🕉️');
 });'''
 
 # Save the updated JavaScript file
 with open('app.js', 'w', encoding='utf-8') as f:
     f.write(js_content)
 
-print("✅ CHANGES TO app.js:")
-print("REMOVED (Lines 171-210):")
-print("- initializeSharingFeatures() function")
-print("- window.shareInvitation() function for WhatsApp, Email, Facebook")
-print("- window.copyInvitationLink() function")
-print("- Call to initializeSharingFeatures() in initializeApp()")
-print("- Share button accessibility handlers")
+print("✅ Updated app.js:")
+print("ADDED:")
+print("- Lotus-om animation hover interaction (speeds up on hover)")
+print("- Scroll-triggered visibility for lotus animation")
+print("- Touch interaction support for mobile devices")
+print("- Accessibility support with ARIA labels and keyboard navigation")
+print("- Special entrance animation timing for lotus")
 print("")
-print("KEPT:")
-print("- All other interactive functionality (Om symbol, lotus, diyas, etc.)")
-print("- Music toggle and language switcher")
-print("- Loading screen and entrance animations")
-print("- Google Drive link works as regular HTML link (no JS needed)")
-
-print("\n🎉 ALL REMOVALS COMPLETE!")
-print("\n📁 Summary of all changes:")
-print("1. ✅ HTML: Removed WhatsApp, Email, Copy Link, Facebook buttons")
-print("2. ✅ CSS: Removed styling for removed buttons")  
-print("3. ✅ JS: Removed all sharing functions and event handlers")
+print("REMOVED:")
+print("- Old diya click interactions")
+print("- Kalash floating animation references")
 print("")
-print("🎯 WHAT REMAINS:")
-print("✅ Google Drive button only (works as direct link)")
-print("✅ All other invitation functionality intact")
-print("✅ Font Awesome CDN kept (needed for other icons)")
-print("✅ Pink architectural theme preserved")
+print("🌸 INTERACTIVE FEATURES:")
+print("1. Hover over lotus = animation speeds up (4s → 2s)")
+print("2. Lotus appears when section scrolls into view")
+print("3. Touch support for mobile devices")
+print("4. Keyboard navigation (Tab + Enter)")
+print("5. Screen reader friendly with ARIA labels")
 
-print("\n🚀 Ready to upload to GitHub!")
+print("\n🎉 LOTUS-OM ANIMATION COMPLETE!")
+print("\n📁 All files updated:")
+print("1. ✅ HTML: Beautiful lotus structure with 8 petals + Om center")
+print("2. ✅ CSS: Pink gradient petals + golden Om + glow effect")  
+print("3. ✅ JS: Interactive hover effects + accessibility")
+print("")
+print("🚀 Ready to upload to GitHub!")
+print("Your guests will be mesmerized by the sacred lotus opening to reveal the Om symbol! 🪷✨")

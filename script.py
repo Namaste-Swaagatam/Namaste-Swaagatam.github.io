@@ -1,4 +1,4 @@
-# Update HTML file - remove WhatsApp, Email, Copy Link, and Facebook buttons
+# Update HTML file to replace the kalash-visual icons with lotus-om animation
 html_content = '''<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -145,12 +145,24 @@ html_content = '''<!DOCTYPE html>
                     </div>
                     
                     <div class="significance-visual">
-                        <div class="kalash-visual">
-                            <div class="kalash">🏺</div>
-                            <div class="kalash-leaves">🍿🥭🍿</div>
-                            <div class="diya-pair">
-                                <span class="diya">🪔</span>
-                                <span class="diya">🪔</span>
+                        <div class="lotus-om-animation">
+                            <!-- Animated Lotus with Om Symbol -->
+                            <div class="animated-lotus">
+                                <!-- Lotus Petals (will animate open) -->
+                                <div class="lotus-petal petal-1"></div>
+                                <div class="lotus-petal petal-2"></div>
+                                <div class="lotus-petal petal-3"></div>
+                                <div class="lotus-petal petal-4"></div>
+                                <div class="lotus-petal petal-5"></div>
+                                <div class="lotus-petal petal-6"></div>
+                                <div class="lotus-petal petal-7"></div>
+                                <div class="lotus-petal petal-8"></div>
+                                
+                                <!-- Om Symbol in Center (appears after petals open) -->
+                                <div class="lotus-om-center">ॐ</div>
+                                
+                                <!-- Golden Glow Effect -->
+                                <div class="lotus-glow"></div>
                             </div>
                         </div>
                     </div>
@@ -216,13 +228,11 @@ html_content = '''<!DOCTYPE html>
 with open('index.html', 'w', encoding='utf-8') as f:
     f.write(html_content)
 
-print("✅ CHANGES TO index.html:")
-print("REMOVED (Lines 169-180):")
-print("- WhatsApp button: <button class='share-btn whatsapp' onclick='shareInvitation('whatsapp')'><i class='fab fa-whatsapp'></i>WhatsApp</button>")
-print("- Email button: <button class='share-btn email' onclick='shareInvitation('email')'><i class='fas fa-envelope'></i>Email</button>")
-print("- Copy Link button: <button class='share-btn copy' onclick='copyInvitationLink()'><i class='fas fa-copy'></i>Copy Link</button>")
-print("- Facebook button: <button class='share-btn facebook' onclick='shareInvitation('facebook')'><i class='fab fa-facebook'></i>Facebook</button>")
-print("")
-print("KEPT:")
-print("- Only Google Drive button remains in share section")
-print("- Font Awesome CDN still included (for Google Drive icon and other icons in the site)")
+print("✅ Updated index.html:")
+print("REPLACED (Lines 137-147):")
+print("- Old kalash-visual with emoji icons")
+print("NEW (Lines 137-157):")
+print("- Beautiful animated lotus with 8 petals")
+print("- Om symbol in center")
+print("- Golden glow effect")
+print("- Smooth opening animation")

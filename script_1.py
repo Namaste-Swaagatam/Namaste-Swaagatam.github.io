@@ -1,4 +1,4 @@
-# Update CSS file - remove styling for WhatsApp, Email, Copy Link, Facebook buttons
+# Update CSS file with beautiful lotus-om animation
 css_content = ''':root {
   /* Theme Colors Based on Pink Architectural Design */
   --primary-pink: #E91E63;
@@ -409,41 +409,145 @@ body {
 
 .significance-visual {
   text-align: center;
-}
-
-.kalash-visual {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  gap: 1rem;
-  padding: 2rem;
-  background: var(--white);
-  border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(233, 30, 99, 0.1);
 }
 
-.kalash {
-  font-size: 4rem;
-  animation: float 3s ease-in-out infinite;
-}
-
-.kalash-leaves {
-  font-size: 2rem;
-  animation: sway 4s ease-in-out infinite;
-}
-
-.diya-pair {
+/* ===== BEAUTIFUL LOTUS-OM ANIMATION ===== */
+.lotus-om-animation {
   display: flex;
-  gap: 2rem;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem;
 }
 
-.diya {
-  font-size: 2rem;
-  animation: flicker 2s ease-in-out infinite alternate;
+.animated-lotus {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.diya:nth-child(2) {
-  animation-delay: 0.5s;
+/* Lotus Petals */
+.lotus-petal {
+  position: absolute;
+  width: 40px;
+  height: 80px;
+  background: linear-gradient(135deg, #FFB6C1 0%, #FF69B4 50%, #E91E63 100%);
+  border-radius: 20px 20px 5px 5px;
+  transform-origin: center bottom;
+  opacity: 0;
+  animation: petalBloom 4s ease-in-out infinite;
+  box-shadow: 0 4px 12px rgba(233, 30, 99, 0.3);
+}
+
+/* Individual petal positioning and animation delays */
+.petal-1 { 
+  transform: rotate(0deg) translateY(-60px); 
+  animation-delay: 0s; 
+}
+.petal-2 { 
+  transform: rotate(45deg) translateY(-60px); 
+  animation-delay: 0.2s; 
+}
+.petal-3 { 
+  transform: rotate(90deg) translateY(-60px); 
+  animation-delay: 0.4s; 
+}
+.petal-4 { 
+  transform: rotate(135deg) translateY(-60px); 
+  animation-delay: 0.6s; 
+}
+.petal-5 { 
+  transform: rotate(180deg) translateY(-60px); 
+  animation-delay: 0.8s; 
+}
+.petal-6 { 
+  transform: rotate(225deg) translateY(-60px); 
+  animation-delay: 1s; 
+}
+.petal-7 { 
+  transform: rotate(270deg) translateY(-60px); 
+  animation-delay: 1.2s; 
+}
+.petal-8 { 
+  transform: rotate(315deg) translateY(-60px); 
+  animation-delay: 1.4s; 
+}
+
+/* Om Symbol in Center */
+.lotus-om-center {
+  position: absolute;
+  font-family: 'Noto Sans Devanagari', serif;
+  font-size: 3rem;
+  color: var(--gold);
+  z-index: 10;
+  opacity: 0;
+  animation: omAppear 4s ease-in-out infinite;
+  animation-delay: 2s;
+  text-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
+}
+
+/* Golden Glow Effect */
+.lotus-glow {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 215, 0, 0.2) 0%, rgba(255, 215, 0, 0.1) 40%, transparent 70%);
+  opacity: 0;
+  animation: glowPulse 4s ease-in-out infinite;
+  animation-delay: 1.8s;
+}
+
+/* ===== LOTUS ANIMATIONS ===== */
+@keyframes petalBloom {
+  0%, 20% {
+    opacity: 0;
+    transform: rotate(var(--rotation, 0deg)) translateY(-30px) scale(0.3);
+  }
+  40%, 80% {
+    opacity: 1;
+    transform: rotate(var(--rotation, 0deg)) translateY(-60px) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: rotate(var(--rotation, 0deg)) translateY(-30px) scale(0.3);
+  }
+}
+
+@keyframes omAppear {
+  0%, 45% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  50%, 90% {
+    opacity: 1;
+    transform: scale(1);
+    text-shadow: 0 0 20px rgba(255, 215, 0, 0.8), 0 0 40px rgba(255, 215, 0, 0.4);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+}
+
+@keyframes glowPulse {
+  0%, 45% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  50%, 70% {
+    opacity: 0.6;
+    transform: scale(1.2);
+  }
+  90%, 100% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
 }
 
 /* ===== CONFIRMATION SECTION ===== */
@@ -751,6 +855,26 @@ body {
   .share-btn {
     justify-content: center;
   }
+  
+  /* Mobile lotus animation adjustments */
+  .animated-lotus {
+    width: 150px;
+    height: 150px;
+  }
+  
+  .lotus-petal {
+    width: 30px;
+    height: 60px;
+  }
+  
+  .lotus-om-center {
+    font-size: 2rem;
+  }
+  
+  .lotus-glow {
+    width: 120px;
+    height: 120px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -768,19 +892,44 @@ body {
     font-size: 2.5rem;
   }
   
-  .kalash {
-    font-size: 3rem;
+  .animated-lotus {
+    width: 120px;
+    height: 120px;
+  }
+  
+  .lotus-petal {
+    width: 25px;
+    height: 50px;
+  }
+  
+  .lotus-om-center {
+    font-size: 1.5rem;
+  }
+  
+  .lotus-glow {
+    width: 100px;
+    height: 100px;
   }
 }
 
 /* ===== ACCESSIBILITY ===== */
 @media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
+  .lotus-petal,
+  .lotus-om-center,
+  .lotus-glow {
+    animation: none !important;
+  }
+  
+  .lotus-petal {
+    opacity: 1;
+  }
+  
+  .lotus-om-center {
+    opacity: 1;
+  }
+  
+  .lotus-glow {
+    opacity: 0.3;
   }
 }
 
@@ -794,6 +943,11 @@ body {
   .invitation-text {
     text-shadow: none;
     font-weight: 600;
+  }
+  
+  .lotus-petal {
+    background: var(--primary-pink);
+    border: 2px solid var(--dark-text);
   }
 }
 
@@ -809,17 +963,21 @@ body {
 with open('style.css', 'w', encoding='utf-8') as f:
     f.write(css_content)
 
-print("✅ CHANGES TO style.css:")
-print("REMOVED (Lines 590-634):")
-print("- .share-btn.whatsapp { background: #25D366; }")
-print("- .share-btn.whatsapp:hover { box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4); }")
-print("- .share-btn.email { background: #FF6B35; }")
-print("- .share-btn.email:hover { box-shadow: 0 6px 20px rgba(255, 107, 53, 0.4); }")
-print("- .share-btn.copy { background: var(--primary-pink); }")
-print("- .share-btn.copy:hover { box-shadow: 0 6px 20px var(--pink-shadow); }")
-print("- .share-btn.facebook { background: #4267B2; }")
-print("- .share-btn.facebook:hover { box-shadow: 0 6px 20px rgba(66, 103, 178, 0.4); }")
+print("✅ Updated style.css:")
+print("ADDED (Lines 420-600):")
+print("- Beautiful lotus-om animation container")
+print("- 8 individual lotus petals with pink gradient")
+print("- Sequential petal opening animation (petalBloom)")
+print("- Om symbol appearing in center after petals open")
+print("- Golden glow effect pulsing around lotus")
+print("- Responsive design for mobile devices")
+print("- Accessibility support (reduced motion)")
 print("")
-print("KEPT:")
-print("- .share-btn.google-drive styling (blue theme)")
-print("- General .share-btn styling for base button appearance")
+print("REMOVED:")
+print("- Old kalash, kalash-leaves, diya-pair styling")
+print("")
+print("🌸 ANIMATION SEQUENCE:")
+print("1. Petals appear one by one (0.2s intervals)")
+print("2. Om symbol appears in center (after 2s)")
+print("3. Golden glow pulses around entire lotus")
+print("4. 4-second loop with smooth transitions")

@@ -124,19 +124,35 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
 
-        // Initialize diya flicker effects
-        const diyas = document.querySelectorAll('.diya');
-        diyas.forEach((diya, index) => {
-            diya.addEventListener('click', () => {
-                diya.style.animation = 'flicker 0.5s ease';
-                setTimeout(() => {
-                    diya.style.animation = 'flicker 2s ease-in-out infinite alternate';
-                    if (index === 1) {
-                        diya.style.animationDelay = '0.5s';
-                    }
-                }, 500);
+        // Initialize lotus-om animation interaction
+        const lotusAnimation = document.querySelector('.animated-lotus');
+        if (lotusAnimation) {
+            lotusAnimation.addEventListener('mouseenter', () => {
+                // Speed up animation on hover
+                const petals = lotusAnimation.querySelectorAll('.lotus-petal');
+                const omCenter = lotusAnimation.querySelector('.lotus-om-center');
+                const glow = lotusAnimation.querySelector('.lotus-glow');
+
+                petals.forEach(petal => {
+                    petal.style.animationDuration = '2s';
+                });
+                if (omCenter) omCenter.style.animationDuration = '2s';
+                if (glow) glow.style.animationDuration = '2s';
             });
-        });
+
+            lotusAnimation.addEventListener('mouseleave', () => {
+                // Reset to normal speed
+                const petals = lotusAnimation.querySelectorAll('.lotus-petal');
+                const omCenter = lotusAnimation.querySelector('.lotus-om-center');
+                const glow = lotusAnimation.querySelector('.lotus-glow');
+
+                petals.forEach(petal => {
+                    petal.style.animationDuration = '4s';
+                });
+                if (omCenter) omCenter.style.animationDuration = '4s';
+                if (glow) glow.style.animationDuration = '4s';
+            });
+        }
     }
 
     function initializeFloatingControls() {
@@ -217,11 +233,22 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (entry.isIntersecting) {
                     entry.target.style.opacity = '1';
                     entry.target.style.transform = 'translateY(0)';
+
+                    // Special handling for lotus animation
+                    if (entry.target.classList.contains('significance-section')) {
+                        const lotusAnimation = entry.target.querySelector('.animated-lotus');
+                        if (lotusAnimation) {
+                            // Slight delay before starting lotus animation
+                            setTimeout(() => {
+                                lotusAnimation.style.visibility = 'visible';
+                            }, 500);
+                        }
+                    }
                 }
             });
         }, observerOptions);
 
-        // Observe sections for scroll animations (removed timeline)
+        // Observe sections for scroll animations
         const sections = document.querySelectorAll('.significance-section, .confirmation-section, .share-section');
         sections.forEach(section => {
             section.style.opacity = '0';
@@ -229,6 +256,12 @@ document.addEventListener('DOMContentLoaded', function() {
             section.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
             observer.observe(section);
         });
+
+        // Initially hide lotus animation until section is visible
+        const lotusAnimation = document.querySelector('.animated-lotus');
+        if (lotusAnimation) {
+            lotusAnimation.style.visibility = 'hidden';
+        }
     }
 
     function startContinuousAnimations() {
@@ -243,12 +276,6 @@ document.addEventListener('DOMContentLoaded', function() {
         leaves.forEach((leaf, index) => {
             leaf.style.animation = `leafRustle 3s ease-in-out infinite ${index * 0.5}s`;
         });
-
-        // Continuous kalash float
-        const kalash = document.querySelector('.kalash');
-        if (kalash) {
-            kalash.style.animation = 'float 3s ease-in-out infinite';
-        }
     }
 
     function showNotification(message) {
@@ -293,10 +320,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Handle mobile touch interactions
     if ('ontouchstart' in window) {
-        const touchElements = document.querySelectorAll('.lotus-petals, .diya, .om-symbol');
+        const touchElements = document.querySelectorAll('.lotus-petals, .om-symbol, .animated-lotus');
         touchElements.forEach(element => {
             element.addEventListener('touchstart', () => {
-                element.style.transform = 'scale(1.1)';
+                element.style.transform = 'scale(1.05)';
             });
 
             element.addEventListener('touchend', () => {
@@ -309,14 +336,22 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeAccessibilityFeatures();
 
     function initializeAccessibilityFeatures() {
-        // Keyboard navigation for custom elements (removed share-btn from selector)
-        const interactiveElements = document.querySelectorAll('.control-btn, .map-link');
+        // Keyboard navigation for custom elements
+        const interactiveElements = document.querySelectorAll('.control-btn, .map-link, .animated-lotus');
 
         interactiveElements.forEach(element => {
             element.addEventListener('keydown', (e) => {
                 if (e.key === 'Enter' || e.key === ' ') {
                     e.preventDefault();
-                    element.click();
+                    if (element.classList.contains('animated-lotus')) {
+                        // Trigger lotus interaction
+                        element.dispatchEvent(new Event('mouseenter'));
+                        setTimeout(() => {
+                            element.dispatchEvent(new Event('mouseleave'));
+                        }, 2000);
+                    } else {
+                        element.click();
+                    }
                 }
             });
         });
@@ -331,8 +366,14 @@ document.addEventListener('DOMContentLoaded', function() {
         lotusFlowers.forEach((lotus, index) => {
             lotus.setAttribute('aria-label', `Decorative lotus flower ${index + 1}`);
         });
+
+        const lotusAnimation = document.querySelector('.animated-lotus');
+        if (lotusAnimation) {
+            lotusAnimation.setAttribute('aria-label', 'Beautiful lotus opening animation with Om symbol - Sacred Hindu symbol for prosperity');
+            lotusAnimation.setAttribute('tabindex', '0');
+        }
     }
 
     console.log('🏠 Griha Pravesh Invitation Loaded Successfully! ✨');
-    console.log('🌸 May this new home bring joy and prosperity! 🙏');
+    console.log('🌸 Beautiful lotus-om animation ready! 🕉️');
 });
