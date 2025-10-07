@@ -220,6 +220,19 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
+    function initializeMusicControl() {
+        const musicToggle = document.getElementById('music-toggle');
+        const backgroundMusic = document.getElementById('background-music');
+        
+        if (!musicToggle || !backgroundMusic) {
+            console.log('Music elements not found');
+            return;
+        }
+        
+        // Set up audio properties for better autoplay compatibility
+        backgroundMusic.loop = true;
+        backgroundMusic.volume = 0.1; // Start at 10% volume
+        backgroundMusic.preload = 'auto';
     
     // NEW FUNCTION: Try to autoplay music
     function tryAutoplayMusic() {
